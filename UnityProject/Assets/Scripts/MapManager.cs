@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour {
     private const int NUM_PLANETS = 5;
     private const int MAX_ITERATIONS = 15;
 
-    private const int MAX_CHUNKS = 100;
+    private const int MAX_CHUNKS = 50;
     private const int CHUNKS_CLEANED_AT_A_TIME = 20;
 
     private float chunkSizeInverse = 1.0f / CHUNK_SIZE;
