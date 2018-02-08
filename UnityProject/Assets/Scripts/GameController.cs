@@ -5,8 +5,8 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private Transform ship;
 
-    void Start () { }
-    void Update () { }
+    public void Start () { }
+    public void Update () { }
 
     public Vector3 GetShipPosition ()
     {
