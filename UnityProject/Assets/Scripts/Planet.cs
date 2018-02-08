@@ -38,14 +38,10 @@ public class Planet : MonoBehaviour {
     [SerializeField]
     private GameObject background;
 
-    [SerializeField]
     private Properties planetProperties;
-    private Color color;
-    private Color backgroundColor;
-    private Texture2D texture;
 
-    void Start () { }
-	void Update () { }
+    public void Start () { }
+    public void Update () { }
 
     public void SetProperties(Properties prop, Color color, Color background, Texture2D tex)
     {

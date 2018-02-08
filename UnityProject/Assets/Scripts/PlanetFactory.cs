@@ -27,8 +27,8 @@ public class PlanetFactory : MonoBehaviour {
         numTextures = textures.Length;
     }
 
-    void Start () { }
-	void Update () { }
+    public void Start () { }
+    public void Update () { }
 
     /// <summary>
     /// Returns a new random generated planet located at given absolute position
