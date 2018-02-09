@@ -9,16 +9,16 @@ public class MapManager : MonoBehaviour {
     [SerializeField]
     private PlanetFactory planetFactory;
 
-    private const float CHUNK_SIZE = 30.0f;
-    private const float MIN_DIST = 10.0f;
-    private const float DIST_TO_BORDER = 4.0f;
+    private const float CHUNK_SIZE = 40.0f;
+    private const float MIN_DIST = 15.0f;
+    private const float DIST_TO_BORDER = 7.5f;
     private const float MIN_INIT_DIST = 7.0f;
 
-    private const int NUM_PLANETS = 5;
-    private const int MAX_ITERATIONS = 15;
+    private const int NUM_PLANETS = 6;
+    private const int MAX_ITERATIONS = 20;
 
-    private const int MAX_CHUNKS = 50;
-    private const int CHUNKS_CLEANED_AT_A_TIME = 20;
+    private const int MAX_CHUNKS = 75;
+    private const int CHUNKS_CLEANED_AT_A_TIME = 15;
 
     private float chunkSizeInverse = 1.0f / CHUNK_SIZE;
     float halfChunkSize = CHUNK_SIZE / 2 - DIST_TO_BORDER;
@@ -228,6 +228,9 @@ public class MapManager : MonoBehaviour {
         }
 
         /*
+         * Buggy algorithm 
+         *
+         *
         Vector3 ship = gameController.GetShipPosition();
         List<KeyValuePair<string, float>> chunksList = new List<KeyValuePair<string, float>>();
         Dictionary<string, GameObject>.Enumerator en = chunks.GetEnumerator();
