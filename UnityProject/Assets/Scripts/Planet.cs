@@ -26,7 +26,9 @@ public class Planet : MonoBehaviour {
         }
     }
 
-    private const float G_CONST = 1.0f;
+	public Properties planetProperties;
+
+	private const float G_CONST = 1.0f;
     private const float GRAVITY_RANGE_FACTOR = 3.0f;
     private const float EVENT_RADIUS = 6.0f;
 
@@ -40,8 +42,6 @@ public class Planet : MonoBehaviour {
     private GameObject model;
     [SerializeField]
     private GameObject background;
-
-    private Properties planetProperties;
 
     private float squareRootGravity;
     private float eventRadiusInverse = 1.0f / EVENT_RADIUS;

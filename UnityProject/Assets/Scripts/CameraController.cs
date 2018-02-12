@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour
 	public float ZOOM_ACC_COEFICIENT;
 	public float SCALE_VEL_COEFICIENT;
 
+	public GameController gameController;
 	public Transform playerT;
 	public float minZoom;
 	public float maxZoom;
@@ -13,7 +14,7 @@ public class CameraController : MonoBehaviour
 	public float maxZoomVel;
 
 	private Camera mCamera;
-	private Planet planet;
+	private Planet planet = null;
 	private float zoomVel;
 	private float previousDist;
 
@@ -31,35 +32,39 @@ public class CameraController : MonoBehaviour
 		mCamera.transform.position = pos;
 
 		//calculate zoom
+		planet = gameController.Planet;
+		float distance;
 		if (planet != null)
 		{
-			float distance = (planet.transform.position - transform.position).magnitude; //- planet.radius;
-			if (distance > minZoomDist && distance < maxZoomDist)
+			distance = (planet.transform.position - playerT.position).magnitude - planet.planetProperties.planetRadius;
+		}
+		else distance = maxZoomDist;
+		if (distance <= maxZoomDist)
+		{
+			float zoomD = minZoom - maxZoom;
+			float objZoom = (distance * zoomD) / (maxZoomDist - minZoomDist) + maxZoom;
+			float f = objZoom - mCamera.orthographicSize;
+			zoomVel = zoomVel * 0.99f;
+			if (Mathf.Abs(f) <= 0.5)
 			{
-				float zoomD = minZoom - maxZoom;
-				float objZoom = (distance * zoomD) / maxZoomDist;
-				float f = objZoom - mCamera.orthographicSize;
-				zoomVel = zoomVel * 0.99f;
-				if (Mathf.Abs(f) <= 0.5)
-				{
-					zoomVel = 0;
-				}
-				else if (Mathf.Abs(f) <= 1)
-				{
-					zoomVel -= Mathf.Sign(f)*Time.deltaTime*ZOOM_ACC_COEFICIENT;
-				}
-				else
-				{
-					zoomVel += f * Time.deltaTime * ZOOM_ACC_COEFICIENT;
-				}
-				if (Mathf.Abs(zoomVel) > maxZoomVel)
-				{
-					zoomVel = Mathf.Sign(zoomVel) * maxZoomVel;
-				}
-				mCamera.orthographicSize += zoomVel;
-				if (mCamera.orthographicSize < maxZoom) mCamera.orthographicSize = maxZoom;
-				else if (mCamera.orthographicSize > minZoom) mCamera.orthographicSize = minZoom;
+				zoomVel = 0;
 			}
+			else if (Mathf.Abs(f) <= 1)
+			{
+				zoomVel -= Mathf.Sign(f)*Time.deltaTime*ZOOM_ACC_COEFICIENT;
+				if (Mathf.Sign(zoomVel) != Mathf.Sign(f)) zoomVel = 0;
+			}
+			else
+			{
+				zoomVel += f * Time.deltaTime * ZOOM_ACC_COEFICIENT;
+			}
+			if (Mathf.Abs(zoomVel) > maxZoomVel)
+			{
+				zoomVel = Mathf.Sign(zoomVel) * maxZoomVel;
+			}
+			mCamera.orthographicSize += zoomVel;
+			if (mCamera.orthographicSize < maxZoom) mCamera.orthographicSize = maxZoom;
+			else if (mCamera.orthographicSize > minZoom) mCamera.orthographicSize = minZoom;
 		}
 	}
 

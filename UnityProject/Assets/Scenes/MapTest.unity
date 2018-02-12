@@ -336,12 +336,12 @@ Prefab:
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: minZoom
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: minZoomDist
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
@@ -356,8 +356,13 @@ Prefab:
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: ZOOM_ACC_COEFICIENT
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 2125004471}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0
@@ -435,6 +440,16 @@ Prefab:
         type: 2}
       propertyPath: fuelConsumption
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: maxVelocity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: thrustersForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
