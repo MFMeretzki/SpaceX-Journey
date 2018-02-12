@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 	public float maxZoomVel;
 
 	private Camera mCamera;
-	public Planet planet;
+	private Planet planet;
 	private float zoomVel;
 	private float previousDist;
 
@@ -61,14 +61,6 @@ public class CameraController : MonoBehaviour
 				else if (mCamera.orthographicSize > minZoom) mCamera.orthographicSize = minZoom;
 			}
 		}
-	}
-
-
-	public void SetPlanet (Planet p)
-	{
-		planet = p;
-		previousDist = (planet.transform.position - transform.position).magnitude;
-		zoomVel = 0;
 	}
 
 }
