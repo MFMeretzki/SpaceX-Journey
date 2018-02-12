@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1600703504}
+  fuelCapacity: 0
 --- !u!4 &2125004472
 Transform:
   m_ObjectHideFlags: 0
