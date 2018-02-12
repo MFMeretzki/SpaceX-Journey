@@ -231,6 +231,3 @@ MonoBehaviour:
   eventsCollider: {fileID: 58093046009831664}
   model: {fileID: 1651843192270574}
   background: {fileID: 1999097318536046}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  texture: {fileID: 0}

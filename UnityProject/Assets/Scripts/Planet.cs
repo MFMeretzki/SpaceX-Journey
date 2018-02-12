@@ -28,6 +28,7 @@ public class Planet : MonoBehaviour {
 
     private const float G_CONST = 1.0f;
     private const float GRAVITY_RANGE_FACTOR = 3.0f;
+    private const float EVENT_RADIUS = 6.0f;
 
     [SerializeField]
     private CircleCollider2D surfaceCollider;
@@ -40,8 +41,30 @@ public class Planet : MonoBehaviour {
 
     private Properties planetProperties;
 
+    private float squareRootGravity;
+    private float eventRadiusInverse = 1.0f / EVENT_RADIUS;
+
     public void Start () { }
     public void Update () { }
+
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+
+    }
+
+    private void OnTriggerStay2D (Collider2D other)
+    {
+        CosmicBody cosmicBody = other.GetComponent<CosmicBody>();
+        if(cosmicBody != null)
+        {
+            cosmicBody.AddForce(ComputeForce(other.transform));
+        }
+    }
+
+    private void OnTriggerExit2D (Collider2D other)
+    {
+
+    }
 
     public void SetProperties(Properties prop, Color color, Color background, Texture2D tex)
     {
@@ -59,12 +82,26 @@ public class Planet : MonoBehaviour {
             this.planetProperties.gravityRadius,
             1.0f
             );
-        this.eventsCollider.radius = this.planetProperties.gravityRadius;
+        //this.eventsCollider.radius = this.planetProperties.gravityRadius
+        this.eventsCollider.radius = EVENT_RADIUS;
 
         Renderer modelRend = this.model.GetComponent<Renderer>();
         modelRend.material.SetColor("_Color", color);
         modelRend.material.SetTexture("_MainTex", tex);
         Renderer backgroundRend = this.background.GetComponent<Renderer>();
         backgroundRend.material.SetColor("_Color", background);
+
+        squareRootGravity = Mathf.Sqrt(planetProperties.gravity);
+
+    }
+
+    private Vector2 ComputeForce(Transform other)
+    {
+        Vector3 dir3d = this.transform.position - other.position;
+        Vector2 dir = new Vector2(dir3d.x, dir3d.y);
+        float f = (1 - (dir.magnitude * eventRadiusInverse)) * squareRootGravity;
+
+
+        return dir.normalized * f * f;
     }
 }
