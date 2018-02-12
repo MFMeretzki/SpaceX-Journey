@@ -323,6 +323,41 @@ Prefab:
       propertyPath: playerT
       value: 
       objectReference: {fileID: 1600703504}
+    - target: {fileID: 20601759080784580, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: orthographic size
+      value: 12.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: maxZoom
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: minZoom
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: minZoomDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: maxZoomDist
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: maxZoomVel
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: ZOOM_ACC_COEFICIENT
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0
@@ -391,6 +426,16 @@ Prefab:
       propertyPath: inputC
       value: 
       objectReference: {fileID: 1600703499}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: fuelTankCapacity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: fuelConsumption
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
   m_IsPrefabParent: 0
