@@ -52,6 +52,15 @@ public class Spaceship : CosmicBody {
 		}
 	}
 
+    public bool IsLanded ()
+    {
+        bool landed = true;
+
+        // TO DO evaluate if spaceship is landed or not
+
+        return landed;
+    }
+
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 	}

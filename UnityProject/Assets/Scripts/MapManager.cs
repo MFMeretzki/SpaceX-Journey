@@ -60,7 +60,7 @@ public class MapManager : MonoBehaviour {
     }
     public void Update ()
     {
-        List<Vector3> neighbours = GetNeighbourPositionsDiscretized(gameController.ShipPosition);
+        List<Vector3> neighbours = GetNeighbourPositionsDiscretized(gameController.Ship.position);
         List<Vector3>.Enumerator en = neighbours.GetEnumerator();
         while (en.MoveNext())
         {
@@ -200,7 +200,7 @@ public class MapManager : MonoBehaviour {
 
     private void CleanChuncks ()
     {
-        Vector3 ship = gameController.ShipPosition;
+        Vector3 ship = gameController.Ship.position;
         List<KeyValuePair<string, float>> chunksList = new List<KeyValuePair<string, float>>();
         Dictionary<string, GameObject>.Enumerator en = chunks.GetEnumerator();
 

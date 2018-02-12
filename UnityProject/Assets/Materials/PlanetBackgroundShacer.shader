@@ -37,7 +37,7 @@ Shader "Custom/PlanetBackgroundShacer"
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.color = _Color;
-				o.color.a = 1 - length(v.vertex.xy);
+				o.color.a = (1 - length(v.vertex.xy)) * 0.5;
 				return o;
 			}
 			

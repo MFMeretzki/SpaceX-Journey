@@ -4,20 +4,21 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     private Transform ship;
-    public Vector3 ShipPosition
+    public Transform Ship
     {
-        get { return ship.position;  }
+        get { return ship;  }
     }
-    private Planet planet;
-    public Planet Planet
-    {
-        get { return planet; }
-        set { planet = value; }
-    }
+    public Planet Planet { get; set; }
 
     [SerializeField]
     private float fuelCapacity;
     private float fuel;
+
+    public void Awake ()
+    {
+        Planet = null;
+        fuel = fuelCapacity;
+    }
 
     public void Start () { }
     public void Update () { }
