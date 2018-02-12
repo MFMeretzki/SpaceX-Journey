@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e9a06ff4875b37c4ebd8fa0110490c2a, type: 3}
   - {fileID: 2800000, guid: e8e0f4d8ec969eb4bb83a83624152eff, type: 3}
   massThreshold: {x: 0.75, y: 3}
-  densityThreshold: {x: 0.5, y: 3}
+  densityThreshold: {x: 1, y: 4}
 --- !u!4 &95878806
 Transform:
   m_ObjectHideFlags: 0
