@@ -30,6 +30,8 @@ public class Planet : MonoBehaviour {
     private const float GRAVITY_RANGE_FACTOR = 3.0f;
     private const float EVENT_RADIUS = 6.0f;
 
+    GameController gameController;
+
     [SerializeField]
     private CircleCollider2D surfaceCollider;
     [SerializeField]
@@ -44,12 +46,19 @@ public class Planet : MonoBehaviour {
     private float squareRootGravity;
     private float eventRadiusInverse = 1.0f / EVENT_RADIUS;
 
-    public void Start () { }
+    public void Start ()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    }
     public void Update () { }
 
     private void OnTriggerEnter2D (Collider2D other)
     {
-
+        Spaceship spaceship = other.GetComponent<Spaceship>();
+        if (spaceship != null)
+        {
+            gameController.Planet = this;
+        }
     }
 
     private void OnTriggerStay2D (Collider2D other)
@@ -63,7 +72,11 @@ public class Planet : MonoBehaviour {
 
     private void OnTriggerExit2D (Collider2D other)
     {
-
+        Spaceship spaceship = other.GetComponent<Spaceship>();
+        if (spaceship != null)
+        {
+            gameController.Planet = null;
+        }
     }
 
     public void SetProperties(Properties prop, Color color, Color background, Texture2D tex)
