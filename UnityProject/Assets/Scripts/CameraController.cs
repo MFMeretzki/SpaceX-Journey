@@ -2,6 +2,8 @@
 
 public class CameraController : MonoBehaviour
 {
+
+	public float SPEED_REDUCTION_GAP;
 	public float ZOOM_ACC_COEFICIENT;
 	public float SCALE_VEL_COEFICIENT;
 
@@ -45,14 +47,10 @@ public class CameraController : MonoBehaviour
 			float objZoom = (distance * zoomD) / (maxZoomDist - minZoomDist) + maxZoom;
 			float f = objZoom - mCamera.orthographicSize;
 			zoomVel = zoomVel * 0.99f;
-			if (Mathf.Abs(f) <= 0.5)
+			if (Mathf.Abs(f) <= SPEED_REDUCTION_GAP)
 			{
-				zoomVel = 0;
-			}
-			else if (Mathf.Abs(f) <= 1)
-			{
-				zoomVel -= Mathf.Sign(f)*Time.deltaTime*ZOOM_ACC_COEFICIENT;
-				if (Mathf.Sign(zoomVel) != Mathf.Sign(f)) zoomVel = 0;
+				float maxV = (Mathf.Abs(f) / SPEED_REDUCTION_GAP)*maxZoomVel;
+				if (Mathf.Abs(zoomVel) > maxV) zoomVel = Mathf.Sign(zoomVel)*maxV;
 			}
 			else
 			{
