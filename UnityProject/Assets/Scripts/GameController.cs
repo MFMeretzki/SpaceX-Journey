@@ -15,6 +15,19 @@ public class GameController : MonoBehaviour {
         set { planet = value; }
     }
 
+    [SerializeField]
+    private float fuelCapacity;
+    private float fuel;
+
     public void Start () { }
     public void Update () { }
+
+    public void FuelConsumption(float volumeConsumed)
+    {
+        fuel -= volumeConsumed;
+        if(fuel <= 0.0f)
+        {
+            // TO DO finish game
+        }
+    }
 }
