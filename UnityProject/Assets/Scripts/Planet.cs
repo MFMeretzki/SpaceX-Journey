@@ -30,7 +30,7 @@ public class Planet : MonoBehaviour {
 
 	private const float G_CONST = 1.0f;
     private const float GRAVITY_RANGE_FACTOR = 3.0f;
-    private const float EVENT_RADIUS = 6.0f;
+    private const float EVENT_RADIUS = 10.0f;
 
     GameController gameController;
 

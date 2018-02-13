@@ -9,10 +9,10 @@ public class MapManager : MonoBehaviour {
     [SerializeField]
     private PlanetFactory planetFactory;
 
-    private const float CHUNK_SIZE = 40.0f;
-    private const float MIN_DIST = 15.0f;
-    private const float DIST_TO_BORDER = 7.5f;
-    private const float MIN_INIT_DIST = 7.0f;
+    private const float CHUNK_SIZE = 70.0f;
+    private const float MIN_DIST = 21.0f;
+    private const float DIST_TO_BORDER = 10.5f;
+    private const float MIN_INIT_DIST = 10.5f;
 
     private const int NUM_PLANETS = 6;
     private const int MAX_ITERATIONS = 20;
