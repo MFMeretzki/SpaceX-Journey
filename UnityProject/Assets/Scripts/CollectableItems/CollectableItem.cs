@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class CollectableItem : MonoBehaviour {
 
+    protected GameController gameController;
+
+    public virtual void Awake ()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    }
+
     public void Start () { }
     public void Update () { }
 
