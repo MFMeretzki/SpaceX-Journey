@@ -14,10 +14,13 @@ public class GameController : MonoBehaviour {
     private float fuelCapacity;
     private float fuel;
 
+    private int ore;
+
     public void Awake ()
     {
         Planet = null;
         fuel = fuelCapacity;
+        ore = 0;
     }
 
     public void Start () { }
@@ -30,5 +33,16 @@ public class GameController : MonoBehaviour {
         {
             // TO DO finish game
         }
+    }
+
+    public void FuelCollected (float fuelAmount)
+    {
+        fuel += fuelAmount;
+        if (fuel > fuelCapacity) fuel = fuelCapacity;
+    }
+
+    public void OreCollected(int oreAmount)
+    {
+        ore += oreAmount;
     }
 }

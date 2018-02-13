@@ -49,25 +49,6 @@ public class Planet : MonoBehaviour {
     public void Start ()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-
-        // TO DO remove this block-----------------------
-        this.planetProperties = new Planet.Properties(1f, 1f);
-        this.model.transform.localScale = new Vector3(
-           this.planetProperties.planetRadius,
-           this.planetProperties.planetRadius,
-           1.0f
-           );
-        this.surfaceCollider.radius = this.planetProperties.planetRadius;
-
-        this.background.transform.localScale = new Vector3(
-            this.planetProperties.gravityRadius,
-            this.planetProperties.gravityRadius,
-            1.0f
-            );
-        this.eventsCollider.radius = EVENT_RADIUS;
-
-        squareRootGravity = Mathf.Sqrt(planetProperties.gravity);
-        // ------------------------------
     }
     public void Update () { }
 

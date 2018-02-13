@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class Spaceship : CosmicBody {
+	
+    private const float ANGLE_TOLERANCE = 5.0f;
 
 	public InputController inputC;
 	public float thrustersForce;
@@ -75,9 +77,21 @@ public class Spaceship : CosmicBody {
 
     public bool IsLanded ()
     {
-        bool landed = true;
+        bool landed = false;
 
-        // TO DO evaluate if spaceship is landed or not
+        if(gameController.Planet != null)
+        {
+            Vector2 shipPlanetDir = (
+                gameController.Planet.transform.position - transform.position
+                );
+            float angle = Vector2.Angle(shipPlanetDir.normalized, -direction);
+
+            if(angle < ANGLE_TOLERANCE &&
+                shipPlanetDir.magnitude < gameController.Planet.planetProperties.planetRadius + 0.15f)
+            {
+                landed = true;
+            }
+        }
 
         return landed;
     }
