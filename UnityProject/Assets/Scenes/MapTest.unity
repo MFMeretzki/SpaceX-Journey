@@ -331,12 +331,12 @@ Prefab:
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: maxZoom
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: minZoom
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
@@ -371,22 +371,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1600703498 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1166219805944576, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1607109590}
---- !u!114 &1600703499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1600703498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00502a7a930ab16488c97b154a03ecf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1600703504 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4396888666752860, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
@@ -430,31 +414,6 @@ Prefab:
     - target: {fileID: 4396888666752860, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-        type: 2}
-      propertyPath: inputC
-      value: 
-      objectReference: {fileID: 1600703499}
-    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-        type: 2}
-      propertyPath: fuelTankCapacity
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-        type: 2}
-      propertyPath: fuelConsumption
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-        type: 2}
-      propertyPath: maxVelocity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
-        type: 2}
-      propertyPath: thrustersForce
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
