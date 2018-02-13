@@ -45,7 +45,8 @@ public class Spaceship : CosmicBody {
         }
         else
         {
-            thrust = 0;
+			thrust -= (Time.fixedDeltaTime / delayUntilMaxThrust) * thrustersForce;
+			if (thrust < 0) thrust = 0;
         }
 
         if (rigidbody2d.velocity.magnitude > maxVelocity)

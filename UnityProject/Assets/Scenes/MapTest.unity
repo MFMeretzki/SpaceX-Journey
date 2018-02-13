@@ -333,38 +333,43 @@ Prefab:
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: maxZoom
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: minZoom
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: minZoomDist
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: maxZoomDist
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: maxZoomVel
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: ZOOM_ACC_COEFICIENT
-      value: 0.005
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
         type: 2}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 2125004471}
+    - target: {fileID: 114931459638789364, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: SPEED_REDUCTION_GAP
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0

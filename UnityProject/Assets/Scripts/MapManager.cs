@@ -12,7 +12,7 @@ public class MapManager : MonoBehaviour {
     private const float CHUNK_SIZE = 70.0f;
     private const float MIN_DIST = 21.0f;
     private const float DIST_TO_BORDER = 10.5f;
-    private const float MIN_INIT_DIST = 11.0f;
+    private const float MIN_INIT_DIST = 10.5f;
 
     private const int NUM_PLANETS = 6;
     private const int MAX_ITERATIONS = 20;

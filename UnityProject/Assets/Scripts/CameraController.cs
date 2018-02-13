@@ -32,13 +32,16 @@ public class CameraController : MonoBehaviour
 		pos.x = playerT.position.x;
 		pos.y = playerT.position.y;
 		mCamera.transform.position = pos;
+	}
 
+	void FixedUpdate ()
+	{
 		//calculate zoom
 		planet = gameController.Planet;
 		float distance;
 		if (planet != null)
 		{
-			distance = (planet.transform.position - playerT.position).magnitude - planet.planetProperties.planetRadius;
+			distance = (planet.transform.position - playerT.position).magnitude - planet.planetProperties.planetRadius - minZoomDist;
 		}
 		else distance = maxZoomDist;
 		if (distance <= maxZoomDist)
@@ -54,7 +57,7 @@ public class CameraController : MonoBehaviour
 			}
 			else
 			{
-				zoomVel += f * Time.deltaTime * ZOOM_ACC_COEFICIENT;
+				zoomVel += f * Time.fixedDeltaTime * ZOOM_ACC_COEFICIENT;
 			}
 			if (Mathf.Abs(zoomVel) > maxZoomVel)
 			{
