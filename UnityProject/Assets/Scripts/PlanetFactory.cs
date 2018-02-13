@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetFactory : MonoBehaviour {
@@ -10,6 +11,11 @@ public class PlanetFactory : MonoBehaviour {
     private Color[] backgrounds;
     [SerializeField]
     private Texture2D[] textures;
+
+    [SerializeField]
+    private GameObject ore;
+    [SerializeField]
+    private GameObject barrel;
 
     private int numColors;
     private int numBackgrounds;
@@ -37,14 +43,14 @@ public class PlanetFactory : MonoBehaviour {
     /// <returns>Random generated planet</returns>
     public GameObject BuildPlanet (Vector3 position)
     {
-        GameObject planet = null;
+        GameObject go = null;
 
         Quaternion rotation = Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
-        planet = GameObject.Instantiate(prefab, position, rotation);
+        go = GameObject.Instantiate(prefab, position, rotation);
 
-        if(planet != null)
+        if(go != null)
         {
-            Planet pl = planet.GetComponent<Planet>();
+            Planet pl = go.GetComponent<Planet>();
             Planet.Properties prop = new Planet.Properties(
                 Random.Range(massThreshold.x, massThreshold.y),
                 Random.Range(densityThreshold.x, densityThreshold.y)
@@ -56,8 +62,57 @@ public class PlanetFactory : MonoBehaviour {
                 backgrounds[Random.Range(0, numBackgrounds)],
                 textures[Random.Range(0, numTextures)]
                 );
+            SetResources(go, prop.planetRadius);
         }
 
-        return planet;
+        return go;
+    }
+
+    private void SetResources(GameObject planet, float planetRadius)
+    {
+        int oreNum = Random.Range(0, 3);
+        int barrelNum = Random.Range(0, 3);
+        Queue<float> angles = GenerateAngles(oreNum + barrelNum);
+
+        float angle;
+        Vector3 position;
+        Quaternion rotation;
+        GameObject go;
+        for (int i=0; i<oreNum; ++i)
+        {
+            angle = angles.Dequeue();
+            position = new Vector3(
+                Mathf.Cos(angle) * (planetRadius + 0.025f),
+                Mathf.Sin(angle) * (planetRadius + 0.025f),
+                -0.5f
+                );
+            rotation = Quaternion.Euler(0.0f, 0.0f, (angle * Mathf.Rad2Deg) - 80.0f);
+            go = GameObject.Instantiate(ore, position, rotation);
+            go.transform.SetParent(planet.transform, false);
+        }
+        for (int i = 0; i < barrelNum; ++i)
+        {
+            angle = angles.Dequeue();
+            position = new Vector3(
+                Mathf.Cos(angle) * (planetRadius + 0.03f),
+                Mathf.Sin(angle) * (planetRadius + 0.03f),
+                -0.5f
+                );
+            rotation = Quaternion.Euler(0.0f, 0.0f, (angle * Mathf.Rad2Deg) - 90.0f);
+            go = GameObject.Instantiate(barrel, position, rotation);
+            go.transform.SetParent(planet.transform, false);
+        }
+    }
+
+    private Queue<float> GenerateAngles(int num)
+    {
+        Queue<float> angles = new Queue<float>();
+
+        for (int i=0; i<num; ++i)
+        {
+            angles.Enqueue(Random.Range(0.0f, Mathf.PI * 2.0f));
+        }
+
+        return angles;
     }
 }

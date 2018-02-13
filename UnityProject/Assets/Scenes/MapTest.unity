@@ -156,6 +156,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 02ada421514e733479a59260e7129170, type: 3}
   - {fileID: 2800000, guid: e9a06ff4875b37c4ebd8fa0110490c2a, type: 3}
   - {fileID: 2800000, guid: e8e0f4d8ec969eb4bb83a83624152eff, type: 3}
+  ore: {fileID: 1760378690501656, guid: f100ae98b413d7b4b9c94825dd49e6f9, type: 2}
+  barrel: {fileID: 1076377226633612, guid: f8b32f0d02bfa3b4882bf361e8425756, type: 2}
   massThreshold: {x: 0.75, y: 3}
   densityThreshold: {x: 1, y: 4}
 --- !u!4 &95878806
