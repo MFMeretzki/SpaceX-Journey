@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Spaceship : CosmicBody {
+public class Spaceship : CosmicBody
+{
 	
     private const float ANGLE_TOLERANCE = 5.0f;
 
@@ -96,7 +97,8 @@ public class Spaceship : CosmicBody {
         return landed;
     }
 
-	void OnCollisionEnter2D (Collision2D collision)
+	protected override void OnCollisionEnter2D (Collision2D collision)
 	{
+		
 	}
 }

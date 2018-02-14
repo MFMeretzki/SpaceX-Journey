@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour {
         get { return ship;  }
     }
     public Planet Planet { get; set; }
+	[SerializeField]
+	private MapManager mapManager;
+	public MapManager MapManager { get { return mapManager; } }
 
     [SerializeField]
     private float fuelCapacity;

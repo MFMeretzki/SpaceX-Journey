@@ -22,11 +22,10 @@ public class CosmicBody : MonoBehaviour {
 		externalForces = Vector2.zero;
 	}
 
-	void OnCollisionEnter2D (Collision2D collision)
+	protected virtual void OnCollisionEnter2D (Collision2D collision)
 	{
 		if (collision.relativeVelocity.magnitude > maxCollisionVelocity)
 		{
-			Debug.Log("high velocity collision");
 		}
 	}
 

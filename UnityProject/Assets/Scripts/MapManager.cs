@@ -68,6 +68,7 @@ public class MapManager : MonoBehaviour {
         }
     }
 
+
     private void CreateChunk (Vector3 position, bool isInit)
     {
         string name = ChunkName(position.x, position.y);
