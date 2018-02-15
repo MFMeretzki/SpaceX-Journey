@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -6,14 +7,13 @@ public class GameController : MonoBehaviour {
     private Transform ship;
     public Transform Ship
     {
-        get { return ship;  }
+        get { return ship; }
     }
     public Planet Planet { get; set; }
 
-    [SerializeField]
+[SerializeField]
     private float fuelCapacity;
     private float fuel;
-
     private int ore;
 
     public void Awake ()
