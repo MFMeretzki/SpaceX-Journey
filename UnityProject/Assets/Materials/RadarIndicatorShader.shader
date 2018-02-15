@@ -4,7 +4,9 @@ Shader "Custom/RadarIndicatorShader"
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
+		_MainTex ("Texture", 2D) = "main" {}
+		_ColorGradient ("ColorGradient", 2D) = "gradient" {}
+		_Dist ("Distance", Float) = 0.5
 	}
 	SubShader
 	{
@@ -37,20 +39,20 @@ Shader "Custom/RadarIndicatorShader"
 			};
 
 			sampler2D _MainTex;
-			float4 _MainTex_ST;
+			sampler2D _ColorGradient;
+			float _Dist;
 			
 			v2f vert (appdata v)
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
+				o.uv = v.uv;
 				return o;
 			}
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 col = fixed4(tex2D(_ColorGradient, float2(_Dist, 0.5)).rgb, tex2D(_MainTex, i.uv).a);
 				return col;
 			}
 			ENDCG

@@ -88,7 +88,6 @@ public class Planet : MonoBehaviour {
             this.planetProperties.planetRadius, 
             1.0f
             );
-        this.surfaceCollider.radius = this.planetProperties.planetRadius;
 
         this.background.transform.localScale = new Vector3(
             this.planetProperties.gravityRadius,

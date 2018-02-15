@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4254294650826102}
   - component: {fileID: 114210178423351512}
-  - component: {fileID: 58040112011731728}
-  - component: {fileID: 58093046009831664}
+  - component: {fileID: 58866954837899684}
   m_Layer: 8
   m_Name: planet
   m_TagString: Untagged
@@ -39,7 +38,8 @@ GameObject:
   - component: {fileID: 4100314145040888}
   - component: {fileID: 33029118239434232}
   - component: {fileID: 23814491084890030}
-  m_Layer: 8
+  - component: {fileID: 58228548913607364}
+  m_Layer: 0
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4683184872795786}
   - component: {fileID: 33144052390616636}
   - component: {fileID: 23863156862239566}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,12 +186,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999097318536046}
   m_Mesh: {fileID: 4300000, guid: 194f9412871e740469324218243d26e8, type: 3}
---- !u!58 &58040112011731728
+--- !u!58 &58228548913607364
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1630043104359786}
+  m_GameObject: {fileID: 1651843192270574}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -201,7 +201,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!58 &58093046009831664
+--- !u!58 &58866954837899684
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5845e3cf6ad0f24438fb5107c0228938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceCollider: {fileID: 58040112011731728}
-  eventsCollider: {fileID: 58093046009831664}
+  surfaceCollider: {fileID: 58228548913607364}
+  eventsCollider: {fileID: 58866954837899684}
   model: {fileID: 1651843192270574}
   background: {fileID: 1999097318536046}
