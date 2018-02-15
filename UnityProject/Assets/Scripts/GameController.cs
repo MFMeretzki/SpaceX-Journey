@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -7,13 +7,17 @@ public class GameController : MonoBehaviour {
     private Transform ship;
     public Transform Ship
     {
-        get { return ship; }
+        get { return ship;  }
     }
     public Planet Planet { get; set; }
+	[SerializeField]
+	private MapManager mapManager;
+	public MapManager MapManager { get { return mapManager; } }
 
-[SerializeField]
+    [SerializeField]
     private float fuelCapacity;
     private float fuel;
+
     private int ore;
 
     public void Awake ()
@@ -45,4 +49,17 @@ public class GameController : MonoBehaviour {
     {
         ore += oreAmount;
     }
+
+	public void Respanw ()
+	{
+		ship.gameObject.SetActive(false);
+		StartCoroutine(RespawnAux(2f));
+	}
+
+	private IEnumerator RespawnAux (float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		ship.gameObject.SetActive(true);
+		ship.GetComponent<Spaceship>().Respawn();
+	}
 }
