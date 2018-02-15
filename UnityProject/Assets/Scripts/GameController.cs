@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -48,4 +49,17 @@ public class GameController : MonoBehaviour {
     {
         ore += oreAmount;
     }
+
+	public void Respanw ()
+	{
+		ship.gameObject.SetActive(false);
+		StartCoroutine(RespawnAux(2f));
+	}
+
+	private IEnumerator RespawnAux (float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		ship.gameObject.SetActive(true);
+		ship.GetComponent<Spaceship>().Respawn();
+	}
 }

@@ -2,6 +2,7 @@
 
 public class CosmicBody : MonoBehaviour {
 
+	public GameObject explosionPrefab;
 	public Vector2 initialVelocity;
 	public float initialAngularVelocity;
 	public float maxCollisionVelocity;
@@ -24,9 +25,8 @@ public class CosmicBody : MonoBehaviour {
 
 	protected virtual void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.relativeVelocity.magnitude > maxCollisionVelocity)
-		{
-		}
+		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+		Destroy(gameObject);
 	}
 
 	public void AddForce (Vector2 force)

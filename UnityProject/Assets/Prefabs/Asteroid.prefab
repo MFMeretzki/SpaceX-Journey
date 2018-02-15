@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4078803301400638}
   - component: {fileID: 50801754008413728}
   - component: {fileID: 58985640919964250}
-  - component: {fileID: 114590862362740250}
+  - component: {fileID: 114544514140415966}
   - component: {fileID: 212727000247093314}
   m_Layer: 0
   m_Name: Asteroid
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.395
---- !u!114 &114590862362740250
+--- !u!114 &114544514140415966
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,14 +86,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1236864123821438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d79703478131d40a969a51d6304f93, type: 3}
+  m_Script: {fileID: 11500000, guid: b6168d145a8018b49926b5d2e787485c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1044163968341148, guid: 81e4c516f2be533458dc883d4fd5645f,
+    type: 2}
   initialVelocity: {x: 0, y: 0}
   initialAngularVelocity: 0
   maxCollisionVelocity: 0
-  explosionPrefab: {fileID: 1044163968341148, guid: 81e4c516f2be533458dc883d4fd5645f,
-    type: 2}
 --- !u!212 &212727000247093314
 SpriteRenderer:
   m_ObjectHideFlags: 1

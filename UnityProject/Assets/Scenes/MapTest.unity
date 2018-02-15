@@ -492,6 +492,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1353443042 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212976265935966446, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1607109590}
 --- !u!1 &1600703498 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1166219805944576, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
@@ -619,12 +624,33 @@ Prefab:
     - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
         type: 2}
       propertyPath: thrustersForce
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 70385671692916166, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
         type: 2}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 1044163968341148, guid: 81e4c516f2be533458dc883d4fd5645f,
+        type: 2}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: maxCollisionVelocity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: thrustersSR
+      value: 
+      objectReference: {fileID: 1353443042}
+    - target: {fileID: 114866078741337216, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: maxLandingVelocity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212101937663677606, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
