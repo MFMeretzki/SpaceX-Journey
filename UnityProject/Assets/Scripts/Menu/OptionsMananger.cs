@@ -56,26 +56,27 @@ public class OptionsManager
 
 	public void SetLanguage (string newLanguage)
 	{
-		PlayerPrefs.SetString(LANGUAGE, newLanguage);
 		language = newLanguage;
-		Localization.Instance.SetLanguage(newLanguage);
+		PlayerPrefs.SetString(LANGUAGE, language);
+		Localization.Instance.SetLanguage(language);
 		ChangeLanguage();
-	}
-
-	public void SetEffectsVolume (float newEffectsVolume)
-	{
-		PlayerPrefs.SetFloat(EFFECTS_VOLUME, newEffectsVolume);
-		effectsVolume = newEffectsVolume;
-		SoundManager.Instance.SetEffectVolume(newEffectsVolume);
 	}
 
 	public void SetMusicVolume (float newMusicVolume)
 	{
-		PlayerPrefs.SetFloat(MUSIC_VOLUME, newMusicVolume);
 		musicVolume = newMusicVolume;
-		SoundManager.Instance.SetMusicVolume(newMusicVolume);
+		PlayerPrefs.SetFloat(MUSIC_VOLUME, musicVolume);
+		SoundManager.Instance.SetMusicVolume(musicVolume);
 
 	}
+
+	public void SetEffectsVolume (float newEffectsVolume)
+	{
+		effectsVolume = newEffectsVolume;
+		PlayerPrefs.SetFloat(EFFECTS_VOLUME, effectsVolume);
+		SoundManager.Instance.SetEffectVolume(effectsVolume);
+	}
+
 
 	private void ChangeLanguage ()
 	{

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Root>
+  <Texts>
+	<!-- Main menu -->
+	<Text id="main_menu_play">Jugar</Text>
+	<Text id="main_menu_highscores">Récords</Text>
+	<Text id="main_menu_options">Opciones</Text>
+	
+	<!-- Options menu -->
+	<Text id="options_menu_language">Idioma</Text>
+	<Text id="options_menu_music_volume">Volumen de la música</Text>
+	<Text id="options_menu_effects_volume">Volumen de los efectos</Text>
+  </Texts>
+</Root>
