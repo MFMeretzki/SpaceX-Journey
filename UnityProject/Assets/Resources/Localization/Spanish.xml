@@ -6,6 +6,8 @@
 	<Text id="main_menu_play">Jugar</Text>
 	<Text id="main_menu_highscores">Récords</Text>
 	<Text id="main_menu_options">Opciones</Text>
+	<Text id="main_menu_credits">Créditos</Text>
+	<Text id="main_menu_exit">Salir</Text>
 	
 	<!-- Options menu -->
 	<Text id="options_menu_language">Idioma</Text>

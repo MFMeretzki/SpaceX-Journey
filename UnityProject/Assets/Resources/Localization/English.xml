@@ -6,6 +6,8 @@
 	<Text id="main_menu_play">Play</Text>
 	<Text id="main_menu_highscores">High Scores</Text>
     <Text id="main_menu_options">Options</Text>
+	<Text id="main_menu_credits">Credits</Text>
+	<Text id="main_menu_exit">Exit</Text>
 	
 	<!-- Options menu -->
 	<Text id="options_menu_language">Language</Text>

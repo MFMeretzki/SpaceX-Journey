@@ -2,6 +2,9 @@
 
 public class BasePanel : MonoBehaviour
 {
+	[SerializeField]
+	protected MenuController menuController;
+
 
 	void OnEnable ()
 	{

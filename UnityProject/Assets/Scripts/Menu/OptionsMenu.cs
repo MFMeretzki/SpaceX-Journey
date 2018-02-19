@@ -41,6 +41,11 @@ public class OptionsMenu : BasePanel {
 		OptionsManager.Instance.SetEffectsVolume(effectsVolumeSlider.value);
 	}
 
+	public void ReturnButtonClick ()
+	{
+		menuController.SwitchPanel(0);
+	}
+
 
 	protected override void OnLanguageChange ()
 	{
