@@ -24,12 +24,17 @@ public class MapManager : MonoBehaviour {
     float halfChunkSize = CHUNK_SIZE / 2 - DIST_TO_BORDER;
     float minDist2 = MIN_DIST * MIN_DIST;
 
-    /* Chunk names convention cp(x)m(y) (examples: cp3p1, cm1p4, cp0m6, cm3m1...)
+    /*
+     * Chunk names convention cp(x)m(y) (examples: cp3p1, cm1p4, cp0m6, cm3m1...)
      * name string starts with 'c' (chunk)
      * followed by 'p'(plus) or 'm'(minus) and the index of the given coordinate (x, y)
      */
     private Dictionary<string, GameObject> chunks;
 
+    #region public methods
+    #endregion
+
+    #region Unity methods
     public void Awake ()
     {
         chunks = new Dictionary<string, GameObject>();
@@ -37,38 +42,33 @@ public class MapManager : MonoBehaviour {
 
     public void Start ()
     {
-        Vector3 pos = Vector3.zero;
-        CreateChunk(pos, true);
-
-        pos = new Vector3(0.0f, 1,  0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(1, 1, 0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(1, 0.0f, 0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(1, -1, 0.0f);
-        CreateChunk(pos, false);
-
-        pos = new Vector3(0.0f, -1, 0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(-1, -1, 0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(-1, 0.0f, 0.0f);
-        CreateChunk(pos, false);
-        pos = new Vector3(-1, 1, 0.0f);
-        CreateChunk(pos, false);
+        CreateChunk(Vector3.zero, true);
+        
+        CreateChunk(new Vector3(0.0f, 1, 0.0f), false);
+        CreateChunk(new Vector3(1, 1, 0.0f), false);
+        CreateChunk(new Vector3(1, 0.0f, 0.0f), false);
+        CreateChunk(new Vector3(1, -1, 0.0f), false);
+        
+        CreateChunk(new Vector3(0.0f, -1, 0.0f), false);
+        CreateChunk(new Vector3(-1, -1, 0.0f), false);
+        CreateChunk(new Vector3(-1, 0.0f, 0.0f), false);
+        CreateChunk(new Vector3(-1, 1, 0.0f), false);
     }
+
     public void Update ()
     {
-        List<Vector3> neighbours = GetNeighbourPositionsDiscretized(gameController.Ship.position);
+        List<Vector3> neighbours = GetNeighbourPositionsDiscretized(
+            DiscretizePosition(gameController.Ship.position)
+            );
         List<Vector3>.Enumerator en = neighbours.GetEnumerator();
         while (en.MoveNext())
         {
             CreateChunk(en.Current, false);
         }
     }
+    #endregion
 
-
+    #region private methods
     private void CreateChunk (Vector3 position, bool isInit)
     {
         string name = ChunkName(position.x, position.y);
@@ -181,20 +181,19 @@ public class MapManager : MonoBehaviour {
             );
     }
 
-    private List<Vector3> GetNeighbourPositionsDiscretized (Vector3 position)
+    private List<Vector3> GetNeighbourPositionsDiscretized (Vector3 DiscretePosition)
     {
         List<Vector3> neighbours = new List<Vector3>();
-        Vector3 pos = DiscretizePosition(position);
 
-        neighbours.Add(pos + new Vector3(0.0f, 1.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(1.0f, 1.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(1.0f, 0.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(1.0f, -1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(0.0f, 1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(1.0f, 1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(1.0f, 0.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(1.0f, -1.0f, 0.0f));
 
-        neighbours.Add(pos + new Vector3(0.0f, -1.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(-1.0f, -1.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(-1.0f, 0.0f, 0.0f));
-        neighbours.Add(pos + new Vector3(-1.0f, 1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(0.0f, -1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(-1.0f, -1.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(-1.0f, 0.0f, 0.0f));
+        neighbours.Add(DiscretePosition + new Vector3(-1.0f, 1.0f, 0.0f));
 
         return neighbours;
     }
@@ -281,4 +280,5 @@ public class MapManager : MonoBehaviour {
         }
         */
     }
+    #endregion
 }
