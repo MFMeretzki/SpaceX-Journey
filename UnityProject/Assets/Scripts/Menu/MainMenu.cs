@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : BasePanel
 {
@@ -28,7 +29,12 @@ public class MainMenu : BasePanel
 	}
 
 
-	public void ScoresMenuClick ()
+	public void PlayButtonClick ()
+	{
+		SceneManager.LoadScene(1);
+	}
+
+	public void ScoresButtonClick ()
 	{
 		menuController.SwitchPanel(2);
 	}

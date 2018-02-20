@@ -143,8 +143,8 @@ MonoBehaviour:
   gameController: {fileID: 2125004471}
   asteroidFactory: {fileID: 515012782}
   minTimeBetweenSpawn: 2
-  minSpawnDistance: 20
-  maxDistanceToPlayer: 40
+  minSpawnDistance: 15
+  maxDistanceToPlayer: 20
 --- !u!4 &31267469
 Transform:
   m_ObjectHideFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 1236864123821438, guid: 6e75130affc21544a80622e73f703a55,
     type: 2}
   asteroidsParent: {fileID: 245342151}
-  initialSpeedThreshold: {x: 4, y: 8}
+  initialSpeedThreshold: {x: 1, y: 2}
   maxInitialAngularVel: 100
 --- !u!1001 &598340952
 Prefab:
@@ -560,7 +560,7 @@ Prefab:
     - target: {fileID: 224508776356549386, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -1.632019
+      value: -17.63218
       objectReference: {fileID: 0}
     - target: {fileID: 224596002221442818, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
@@ -575,7 +575,7 @@ Prefab:
     - target: {fileID: 224596002221442818, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -8.663727
+      value: -77.97443
       objectReference: {fileID: 0}
     - target: {fileID: 224615297992092418, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
@@ -590,7 +590,7 @@ Prefab:
     - target: {fileID: 224615297992092418, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -1.9838486
+      value: -17.984032
       objectReference: {fileID: 0}
     - target: {fileID: 224337280173982044, guid: 76bbcd3dfa87614448b7551aa22fc6a5,
         type: 2}
