@@ -28,6 +28,11 @@ public class MainMenu : BasePanel
 	}
 
 
+	public void ScoresMenuClick ()
+	{
+		menuController.SwitchPanel(2);
+	}
+
 	public void OptionsButtonClick ()
 	{
 		menuController.SwitchPanel(1);
