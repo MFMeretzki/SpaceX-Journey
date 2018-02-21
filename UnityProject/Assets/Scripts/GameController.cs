@@ -3,6 +3,21 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+    static bool paused;
+    public static bool Paused { get { return paused; } }
+    public static void Pause (bool paused)
+    {
+        GameController.paused = paused;
+        if (paused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
+
     [SerializeField]
     private Transform ship;
     public Transform Ship
@@ -15,6 +30,9 @@ public class GameController : MonoBehaviour {
     public MapManager MapManager { get { return mapManager; } }
 
     [SerializeField]
+    private GameObject pauseMenu;
+
+    [SerializeField]
     private float fuelCapacity;
     public float FuelCapacity { get{return fuelCapacity;} }
     private float fuel;
@@ -23,6 +41,7 @@ public class GameController : MonoBehaviour {
 
     public void Awake ()
     {
+        paused = false;
         Planet = null;
         fuel = fuelCapacity;
         ore = 0;
@@ -62,6 +81,13 @@ public class GameController : MonoBehaviour {
 		ship.gameObject.SetActive(true);
 		ship.GetComponent<Spaceship>().Respawn();
 	}
+
+    public void MenuButtonPressed ()
+    {
+        bool p = !GameController.Paused;
+        GameController.Pause(p);
+        pauseMenu.SetActive(p);
+    }
 
     #region Events
     public delegate void FuelChangeDelegate (float fuel);
