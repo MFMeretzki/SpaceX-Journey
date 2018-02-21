@@ -35,28 +35,31 @@ public class Spaceship : CosmicBody
 	{
 		base.Update();
 
-		if (inputC.ChangeDirection())
-		{
-			direction = inputC.GetDirection();
-			transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-		}
+        if (!GameController.Paused)
+        {
+            if (inputC.ChangeDirection())
+            {
+                direction = inputC.GetDirection();
+                transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+            }
 
-		if (thrustersActive && !inputC.ThrustersBurning())
-		{
-			animator.SetFloat("thrustersActive", 0);
-			thrustersActive = false;
-		}
-		else if (!thrustersActive && inputC.ThrustersBurning())
-		{
-			animator.SetBool("thrustersBurning", true);
-			animator.SetFloat("thrustersActive", 10);
-			thrustersActive = true;
-		}
-		else if (thrustersActive == false && thrust == 0)
-		{
-			animator.SetBool("thrustersBurning", false);
-		}
-		animator.SetFloat("thrustersPotency", thrust / thrustersForce);
+            if (thrustersActive && !inputC.ThrustersBurning())
+            {
+                animator.SetFloat("thrustersActive", 0);
+                thrustersActive = false;
+            }
+            else if (!thrustersActive && inputC.ThrustersBurning())
+            {
+                animator.SetBool("thrustersBurning", true);
+                animator.SetFloat("thrustersActive", 10);
+                thrustersActive = true;
+            }
+            else if (thrustersActive == false && thrust == 0)
+            {
+                animator.SetBool("thrustersBurning", false);
+            }
+            animator.SetFloat("thrustersPotency", thrust / thrustersForce);
+        }
 	}
 
 	void FixedUpdate ()

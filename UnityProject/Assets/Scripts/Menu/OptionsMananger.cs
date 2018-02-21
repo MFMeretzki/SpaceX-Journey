@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class OptionsManager
 {
@@ -25,14 +25,11 @@ public class OptionsManager
 	private float musicVolume;
 
 
-	public delegate void LanguageChange ();
-	public event LanguageChange OnLanguageChange;
+    /// <summary>
+    /// Constructor. If it doesn't find the player prefs uses default values.
+    /// </summary>
 
-	/// <summary>
-	/// Constructor. If it doesn't find the player prefs uses default values.
-	/// </summary>
-
-	private OptionsManager ()
+    private OptionsManager ()
 	{
 		language = PlayerPrefs.GetString(LANGUAGE, "English");
 		effectsVolume = PlayerPrefs.GetFloat(EFFECTS_VOLUME, 0.5f);
@@ -77,14 +74,18 @@ public class OptionsManager
 		SoundManager.Instance.SetEffectVolume(effectsVolume);
 	}
 
+    #region events
+    public delegate void LanguageChangeDelegate ();
+    private LanguageChangeDelegate LanguageChange;
+    public event LanguageChangeDelegate OnLanguageChange
+    {
+        add { LanguageChange += value; }
+        remove { LanguageChange -= value; }
+    }
 
-	private void ChangeLanguage ()
-	{
-
-		if (OnLanguageChange != null)
-		{
-			OnLanguageChange();
-		}
-	}
-
+    private void ChangeLanguage ()
+    {
+        if (LanguageChange != null) { LanguageChange(); }
+    }
+    #endregion
 }
