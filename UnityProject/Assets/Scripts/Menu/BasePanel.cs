@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class BasePanel : MonoBehaviour
 {
@@ -6,12 +6,12 @@ public class BasePanel : MonoBehaviour
 	protected MenuController menuController;
 
 
-	void OnEnable ()
+	protected void OnEnable ()
 	{
 		OptionsManager.Instance.OnLanguageChange += OnLanguageChange;
 	}
 
-	void OnDisable ()
+	protected void OnDisable ()
 	{
 		OptionsManager.Instance.OnLanguageChange -= OnLanguageChange;
 	}

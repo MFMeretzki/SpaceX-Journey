@@ -14,9 +14,15 @@
 	<Text id="options_menu_music_volume">Volumen de la música</Text>
 	<Text id="options_menu_effects_volume">Volumen de los efectos</Text>
 	
-	<!-- Scores menu ></!-->
+	<!-- Scores menu -->
 	<Text id="scores_highscores">Récords</Text>
 	<Text id="scores_player">Jugador</Text>
 	<Text id="scores_points">Puntos</Text>
+
+  <!-- Pause menu -->
+  <Text id="pause_restart">Reiniciar</Text>
+  <Text id="pause_options">Opciones</Text>
+  <Text id="pause_main_menu">Menú Principal</Text>
+  <Text id="pause_exit">Salir</Text>
   </Texts>
 </Root>

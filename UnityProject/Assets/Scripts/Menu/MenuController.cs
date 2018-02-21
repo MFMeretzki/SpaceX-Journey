@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class MenuController : MonoBehaviour {
 
@@ -7,8 +7,12 @@ public class MenuController : MonoBehaviour {
 
 	private int activePanel = 0;
 
+    private void OnEnable ()
+    {
+        SwitchPanel(0);
+    }
 
-	void Start ()
+    void Start ()
 	{
 		for (int i = 1; i < menuPanels.Length; ++i)
 		{
