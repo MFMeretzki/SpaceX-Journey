@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Root>
+  <Texts>
+	<!-- Main menu -->
+	<Text id="main_menu_play">Play</Text>
+	<Text id="main_menu_highscores">High Scores</Text>
+    <Text id="main_menu_options">Options</Text>
+	<Text id="main_menu_credits">Credits</Text>
+	<Text id="main_menu_exit">Exit</Text>
+	
+	<!-- Options menu -->
+	<Text id="options_menu_language">Language</Text>
+	<Text id="options_menu_music_volume">Music Volume</Text>
+	<Text id="options_menu_effects_volume">Effects Volume</Text>
+	
+	<!-- Scores menu ></!-->
+	<Text id="scores_highscores">High Scores</Text>
+	<Text id="scores_player">Player</Text>
+	<Text id="scores_points">Points</Text>
+  </Texts>
+</Root>
