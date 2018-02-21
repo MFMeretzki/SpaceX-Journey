@@ -11,8 +11,8 @@
 	
 	<!-- Options menu -->
 	<Text id="options_menu_language">Language</Text>
-	<Text id="options_menu_music_volume">Music Volume</Text>
-	<Text id="options_menu_effects_volume">Effects Volume</Text>
+	<Text id="options_menu_music_volume">Music</Text>
+	<Text id="options_menu_effects_volume">Sound</Text>
 	
 	<!-- Scores menu -->
 	<Text id="scores_highscores">High Scores</Text>
