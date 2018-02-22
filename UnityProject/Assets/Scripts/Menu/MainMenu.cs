@@ -44,6 +44,11 @@ public class MainMenu : BasePanel
 		menuController.SwitchPanel(1);
 	}
 
+	public void CreditsButtonClick ()
+	{
+		menuController.SwitchPanel(3);
+	}
+
 	public void ExitButtonClick ()
 	{
 		Application.Quit();
