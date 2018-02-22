@@ -47,7 +47,10 @@ public class GameController : MonoBehaviour {
         ore = 0;
     }
 
-    public void Start () { }
+    public void Start ()
+    {
+        GameController.Pause(false);
+    }
     public void Update () { }
 
     public void FuelConsumption(float volumeConsumed)
