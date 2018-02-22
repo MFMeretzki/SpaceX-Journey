@@ -5,16 +5,10 @@ using UnityEngine.UI;
 public class ScoresMenu : BasePanel
 {
 	private const string TITLE_ID = "scores_highscores";
-	private const string PLAYER_ID = "scores_player";
-	private const string POINTS_ID = "scores_points";
 
 
 	[SerializeField]
 	private Text titleText;
-	[SerializeField]
-	private Text playerTitleText;
-	[SerializeField]
-	private Text pointsTitleText;
 	[SerializeField]
 	private Text[] playersText;
 	[SerializeField]
@@ -45,7 +39,5 @@ public class ScoresMenu : BasePanel
 	protected override void OnLanguageChange ()
 	{
 		titleText.text = Localization.Instance.GetText(TITLE_ID);
-		playerTitleText.text = Localization.Instance.GetText(PLAYER_ID);
-		pointsTitleText.text = Localization.Instance.GetText(POINTS_ID);
 	}
 }

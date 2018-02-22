@@ -13,6 +13,7 @@
 	<Text id="options_menu_language">Idioma</Text>
 	<Text id="options_menu_music_volume">Música</Text>
 	<Text id="options_menu_effects_volume">Sonido</Text>
+	<Text id="options_menu_return">Volver</Text>
 	
 	<!-- Scores menu -->
 	<Text id="scores_highscores">Récords</Text>

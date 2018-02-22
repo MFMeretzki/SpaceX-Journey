@@ -13,6 +13,7 @@
 	<Text id="options_menu_language">Language</Text>
 	<Text id="options_menu_music_volume">Music</Text>
 	<Text id="options_menu_effects_volume">Sound</Text>
+	<Text id="options_menu_return">Return</Text>
 	
 	<!-- Scores menu -->
 	<Text id="scores_highscores">High Scores</Text>

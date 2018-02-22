@@ -3,16 +3,22 @@ using UnityEngine.UI;
 
 public class OptionsMenu : BasePanel {
 
+	private const string TITLE_ID = "main_menu_options";
 	private const string LANGUAGE_ID = "options_menu_language";
 	private const string MUSIC_VOLUME_ID = "options_menu_music_volume";
 	private const string EFFECTS_VOLUME_ID = "options_menu_effects_volume";
+	private const string RETURN_ID = "options_menu_return";
 
+	[SerializeField]
+	private Text titleText;
 	[SerializeField]
 	private Text languageText;
 	[SerializeField]
 	private Text musicVolumeText;
 	[SerializeField]
 	private Text effectsVolumeText;
+	[SerializeField]
+	private Text returnText;
 	[SerializeField]
 	private Slider musicVolumeSlider;
 	[SerializeField]
@@ -49,8 +55,10 @@ public class OptionsMenu : BasePanel {
 
 	protected override void OnLanguageChange ()
 	{
+		titleText.text = Localization.Instance.GetText(TITLE_ID);
 		languageText.text = Localization.Instance.GetText(LANGUAGE_ID);
 		musicVolumeText.text = Localization.Instance.GetText(MUSIC_VOLUME_ID);
 		effectsVolumeText.text = Localization.Instance.GetText(EFFECTS_VOLUME_ID);
+		returnText.text = Localization.Instance.GetText(RETURN_ID);
 	}
 }
