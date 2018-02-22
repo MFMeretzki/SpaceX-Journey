@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 45974100}
   - component: {fileID: 45974099}
   m_Layer: 5
-  m_Name: Border
+  m_Name: ScoresBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834930688}
+      - m_Target: {fileID: 2017224340}
         m_MethodName: ChangeEffectsVolume
         m_Mode: 1
         m_Arguments:
@@ -2093,8 +2093,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.35002, y: -24.6}
-  m_SizeDelta: {x: 460.70004, y: 49.2}
+  m_AnchoredPosition: {x: 370, y: -143.25}
+  m_SizeDelta: {x: 740, y: 286.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508150909
 MonoBehaviour:
@@ -3098,17 +3098,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 834930686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93b8549299bc884daf7b2fb088d9673, type: 3}
+  m_Script: {fileID: 11500000, guid: 923802ed0dad76045b78dd356f873df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 1105160095}
   titleText: {fileID: 1122826641}
-  languageText: {fileID: 57912908}
-  musicVolumeText: {fileID: 2072656829}
-  effectsVolumeText: {fileID: 2033396959}
-  returnText: {fileID: 400014001}
-  musicVolumeSlider: {fileID: 1811378283}
-  effectsVolumeSlider: {fileID: 115105571}
 --- !u!224 &852845366 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224865110495179326, guid: 4df29ebaa7b567d4a9c2c90f7a076653,
@@ -3211,7 +3205,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -81.04801, y: 0}
+  m_SizeDelta: {x: -5.700012, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884238007
 MonoBehaviour:
@@ -3252,7 +3246,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834930688}
+      - m_Target: {fileID: 2017224340}
         m_MethodName: SetLanguage
         m_Mode: 5
         m_Arguments:
@@ -5019,7 +5013,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834930688}
+      - m_Target: {fileID: 2017224340}
         m_MethodName: ReturnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -6035,7 +6029,7 @@ GameObject:
   - component: {fileID: 1396249655}
   - component: {fileID: 1396249654}
   m_Layer: 5
-  m_Name: Border
+  m_Name: MainMenuBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6307,8 +6301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.35002, y: -167.20001}
-  m_SizeDelta: {x: 460.70004, y: 39.2}
+  m_AnchoredPosition: {x: 370, y: -997.75}
+  m_SizeDelta: {x: 740, y: 276.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1503283101
 CanvasRenderer:
@@ -6786,7 +6780,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -81.04798, y: 0}
+  m_SizeDelta: {x: -5.6999817, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678780008
 MonoBehaviour:
@@ -6827,7 +6821,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834930688}
+      - m_Target: {fileID: 2017224340}
         m_MethodName: SetLanguage
         m_Mode: 5
         m_Arguments:
@@ -7070,7 +7064,7 @@ GameObject:
   - component: {fileID: 1811378282}
   - component: {fileID: 1811378283}
   m_Layer: 5
-  m_Name: MusciVolumeSlider
+  m_Name: MusicVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7143,7 +7137,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834930688}
+      - m_Target: {fileID: 2017224340}
         m_MethodName: ChangeMusicVolume
         m_Mode: 1
         m_Arguments:
@@ -7190,8 +7184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.35002, y: -73.8}
-  m_SizeDelta: {x: 460.70004, y: 49.2}
+  m_AnchoredPosition: {x: 370, y: -429.75}
+  m_SizeDelta: {x: 740, y: 286.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839448629
 MonoBehaviour:
@@ -7380,8 +7374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230.35002, y: -123}
-  m_SizeDelta: {x: 460.70004, y: 49.2}
+  m_AnchoredPosition: {x: 370, y: -716.25}
+  m_SizeDelta: {x: 740, y: 286.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902717661
 MonoBehaviour:
@@ -7967,8 +7961,9 @@ GameObject:
   - component: {fileID: 2017224337}
   - component: {fileID: 2017224339}
   - component: {fileID: 2017224338}
+  - component: {fileID: 2017224340}
   m_Layer: 5
-  m_Name: Border
+  m_Name: OptionsBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8026,6 +8021,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2017224336}
+--- !u!114 &2017224340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017224336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93b8549299bc884daf7b2fb088d9673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuController: {fileID: 1105160095}
+  languageText: {fileID: 57912908}
+  musicVolumeText: {fileID: 2072656829}
+  effectsVolumeText: {fileID: 2033396959}
+  returnText: {fileID: 400014001}
+  musicVolumeSlider: {fileID: 1811378283}
+  effectsVolumeSlider: {fileID: 115105571}
 --- !u!1 &2027514187
 GameObject:
   m_ObjectHideFlags: 0
