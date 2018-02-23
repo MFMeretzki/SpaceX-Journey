@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Root>
-	<Texts>
-		<!-- Main menu -->
-		<Text id="main_menu_play">Play</Text>
-		<Text id="main_menu_highscores">High Scores</Text>
-		<Text id="main_menu_options">Options</Text>
-		<Text id="main_menu_credits">Credits</Text>
-		<Text id="main_menu_exit">Exit</Text>
-		
-		<!-- Options menu -->
-		<Text id="options_menu_language">Language</Text>
-		<Text id="options_menu_music_volume">Music</Text>
-		<Text id="options_menu_effects_volume">Sound</Text>
-		<Text id="options_menu_return">Return</Text>
-		
-		<!-- Scores menu -->
-		<Text id="scores_highscores">High Scores</Text>
-		<Text id="scores_player">Player</Text>
-		<Text id="scores_points">Points</Text>
-		
-		<!-- Credits menu -->
-		<Text id="credits">Credits</Text>
-		<Text id="credits_text"></Text>
+  <Texts>
+	  <!-- Main menu -->
+	  <Text id="main_menu_play">Play</Text>
+	  <Text id="main_menu_highscores">High Scores</Text>
+      <Text id="main_menu_options">Options</Text>
+	  <Text id="main_menu_credits">Credits</Text>
+	  <Text id="main_menu_exit">Exit</Text>
+	
+	  <!-- Options menu -->
+	  <Text id="options_menu_language">Language</Text>
+	  <Text id="options_menu_music_volume">Music</Text>
+	  <Text id="options_menu_effects_volume">Sound</Text>
+	  <Text id="options_menu_return">Return</Text>
+	
+	  <!-- Scores menu -->
+	  <Text id="scores_highscores">High Scores</Text>
+	  <Text id="scores_player">Player</Text>
+	  <Text id="scores_points">Points</Text>
 
-		<!-- Pause menu -->
-		<Text id="pause_restart">Restart</Text>
-		<Text id="pause_options">Options</Text>
-		<Text id="pause_main_menu">Main Menu</Text>
-		<Text id="pause_exit">Exit</Text>
-	</Texts>
+    <!-- Pause menu -->
+    <Text id="pause_restart">Restart</Text>
+    <Text id="pause_options">Options</Text>
+    <Text id="pause_main_menu">Main Menu</Text>
+    <Text id="pause_exit">Exit</Text>
+
+    <!-- Game over menu -->
+    <Text id="gameover_restart">Restart</Text>
+    <Text id="gameover_main_menu">Main Menu</Text>
+    <Text id="gameover_out_of_fuel">After running out of fuel the ship traveled adrift until it fell on a desert planet.</Text>
+    <Text id="gameover_ship_destroyed">After a brutal impact the ship exploded into a thousand pieces killing the entire crew.</Text>
+  </Texts>
 </Root>

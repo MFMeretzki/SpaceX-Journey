@@ -743,7 +743,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238074901}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 594462227}
+        m_MethodName: MainMenuButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &238074901
@@ -1214,6 +1225,7 @@ GameObject:
   - component: {fileID: 594462224}
   - component: {fileID: 594462226}
   - component: {fileID: 594462225}
+  - component: {fileID: 594462227}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -1273,6 +1285,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594462223}
+--- !u!114 &594462227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 594462223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a60f2b3cca19b4aa6524a6692a1771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: {fileID: 463120305}
+  score: {fileID: 1954042726}
+  restart: {fileID: 673232380}
+  mainMenu: {fileID: 2000998982}
+  sticker: {fileID: 1307953140}
+  inputField: {fileID: 208792128}
+  inputText: {fileID: 414879225}
 --- !u!1 &641878562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,7 +3797,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2032632907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 594462227}
+        m_MethodName: RestartButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2032632907
@@ -3842,7 +3883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4897127662756760, guid: 4b408a6ec753c9f47b2d1eaeb27fc11f, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b408a6ec753c9f47b2d1eaeb27fc11f, type: 2}
@@ -3917,7 +3958,8 @@ MonoBehaviour:
   ship: {fileID: 1600703504}
   mapManager: {fileID: 229133633}
   pauseMenu: {fileID: 673248300}
-  fuelCapacity: 500
+  gameOverScreen: {fileID: 594462227}
+  fuelCapacity: 50
 --- !u!4 &2125004472
 Transform:
   m_ObjectHideFlags: 0
@@ -3930,4 +3972,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2128295937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2128295939}
+  - component: {fileID: 2128295938}
+  m_Layer: 0
+  m_Name: GameSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2128295938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128295937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e869cdad81dca4ca640ef5ae4970be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2128295939
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128295937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 276.83188, y: 624.52374, z: -0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
