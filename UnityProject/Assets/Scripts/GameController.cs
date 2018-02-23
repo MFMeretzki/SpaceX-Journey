@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+    static bool gameOver;
+    public static bool GameOver { get { return gameOver; } }
     static bool paused;
     public static bool Paused { get { return paused; } }
     public static void Pause (bool paused)
@@ -31,6 +33,8 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     private GameObject pauseMenu;
+    [SerializeField]
+    private GameOverScreen gameOverScreen;
 
     [SerializeField]
     private float fuelCapacity;
@@ -41,6 +45,7 @@ public class GameController : MonoBehaviour {
 
     public void Awake ()
     {
+        gameOver = false;
         paused = false;
         Planet = null;
         fuel = fuelCapacity;
@@ -57,6 +62,7 @@ public class GameController : MonoBehaviour {
     {
         fuel -= volumeConsumed;
         if (FuelChange != null) FuelChange(fuel);
+        if (fuel <= 0.0f) OutOfFuel();
     }
 
     public void FuelCollected (float fuelAmount)
@@ -72,17 +78,24 @@ public class GameController : MonoBehaviour {
         if (OreChange != null) OreChange(ore);
     }
 
-	public void Respanw ()
+	public void ShipDestroied ()
 	{
 		ship.gameObject.SetActive(false);
-		StartCoroutine(RespawnAux(2f));
+        if (!gameOver)
+		    StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, 2f));
 	}
 
-	private IEnumerator RespawnAux (float seconds)
+    private void OutOfFuel ()
+    {
+        if (!gameOver)
+            StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.OutOfFuel, 2f));
+    }
+
+	private IEnumerator GameOverCoroutine (GameOverScreen.GameOver gameOverCause, float seconds)
 	{
+        GameController.gameOver = true;
 		yield return new WaitForSeconds(seconds);
-		ship.gameObject.SetActive(true);
-		ship.GetComponent<Spaceship>().Respawn();
+        gameOverScreen.Show(gameOverCause, ore);
 	}
 
     public void MenuButtonPressed ()

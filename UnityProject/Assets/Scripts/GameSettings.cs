@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,37 +47,53 @@ public class GameSettings : MonoBehaviour {
 
 	public int IsNewRecord (int points)
 	{
-		if (scoresList.Count < MAX_SCORES || scoresList[scoresList.Count - 1].points < points)
-		{
-			for (int i = scoresList.Count - 1; i <= 0; --i)
-			{
-				if (scoresList[i].points >= points) return i + 2;
-			}
-		}
-		return -1;
+        int pos;
+
+        if (scoresList.Count > 0)
+        {
+            if (scoresList.Count < MAX_SCORES)
+            {
+                pos = scoresList.Count;
+            }
+            else if (scoresList[scoresList.Count -1].points < points)
+            {
+                int i = scoresList.Count - 2;
+                while (i >= 0 && scoresList[i].points < points)
+                {
+                    i--;
+                }
+                pos = i + 1;
+            }
+            else
+            {
+                pos = -1;
+            }
+        }
+        else
+        {
+            pos = 0;
+        }
+
+        return pos;
 	}
 
 	public void AddRecord (string name, int points)
 	{
-		int slot = -1;
-		if (scoresList.Count < MAX_SCORES)
-		{
-			slot = scoresList.Count;
-		}
-		else if (scoresList[scoresList.Count - 1].points < points)
-		{
-			slot = scoresList[scoresList.Count - 1].slot;
-		}
+        int slot = IsNewRecord(points);
 
 		if (slot >= 0)
 		{
 			ScoreData sd = new ScoreData(name, points, slot);
-			scoresList.RemoveAt(scoresList.Count - 1);
 			scoresList.Add(sd);
 			SortScoresList();
 			PlayerPrefs.SetString(PLAYER_KEY + sd.slot, name);
 			PlayerPrefs.SetInt(POINTS_KEY + sd.slot, points);
-		}
+
+            if (scoresList.Count > MAX_SCORES)
+            {
+                scoresList.RemoveAt(scoresList.Count - 1);
+            }
+        }
 	}
 
 	public List<Tuple<string, int>> GetScores ()

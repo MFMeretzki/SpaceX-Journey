@@ -141,7 +141,7 @@ public class Spaceship : CosmicBody
 	private void GameOver ()
 	{
 		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-		gameController.Respanw();
+		gameController.ShipDestroied();
 	}
 
 }
