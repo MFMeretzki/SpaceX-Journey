@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 50902971007410770}
   - component: {fileID: 114866078741337216}
   - component: {fileID: 70385671692916166}
-  - component: {fileID: 212101937663677606}
-  - component: {fileID: 114784799833971418}
+  - component: {fileID: 212968290286984894}
+  - component: {fileID: 114048505950485196}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114784799833971418
+--- !u!114 &114048505950485196
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -149,15 +149,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d9f0ff9f69c5f4698e6aa8525210a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1044163968341148, guid: 81e4c516f2be533458dc883d4fd5645f,
+    type: 2}
   initialVelocity: {x: 0, y: 0}
   initialAngularVelocity: 0
-  maxCollisionVelocity: 2
-  inputC: {fileID: 114784799833971418}
-  thrustersForce: 2
+  maxCollisionVelocity: 0.5
+  inputC: {fileID: 114048505950485196}
+  thrustersForce: 3
   delayUntilMaxThrust: 1
   maxVelocity: 2
   fuelConsumption: 1
---- !u!212 &212101937663677606
+  maxLandingVelocity: 1
+  thrustersAClip: {fileID: 8300000, guid: 422bde78415172945a531026df56f558, type: 3}
+--- !u!212 &212968290286984894
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

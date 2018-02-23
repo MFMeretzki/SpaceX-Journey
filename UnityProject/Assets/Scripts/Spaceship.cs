@@ -13,6 +13,7 @@ public class Spaceship : CosmicBody
 	public float maxVelocity;
 	public float fuelConsumption;
 	public float maxLandingVelocity;
+	public AudioClip thrustersAClip;
 
 	private GameController gameController;
 	private Animator animator;
@@ -47,12 +48,14 @@ public class Spaceship : CosmicBody
             {
                 animator.SetFloat("thrustersActive", 0);
                 thrustersActive = false;
-            }
+				SoundManager.Instance.StopLoopEffect(SoundManager.THRUSTERS_ASOURCE_INDEX, true);
+			}
             else if (!thrustersActive && inputC.ThrustersBurning())
             {
                 animator.SetBool("thrustersBurning", true);
                 animator.SetFloat("thrustersActive", 10);
                 thrustersActive = true;
+				SoundManager.Instance.LoopEffect(SoundManager.THRUSTERS_ASOURCE_INDEX, thrustersAClip, true);
             }
             else if (thrustersActive == false && thrust == 0)
             {

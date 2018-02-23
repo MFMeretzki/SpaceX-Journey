@@ -5,13 +5,24 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
+	public const int THRUSTERS_ASOURCE_INDEX = GENERIC_ASOURCES;
+
+
+	private const int GENERIC_ASOURCES = 4;
+	
+
 	[SerializeField]
 	private AudioSource musicASource;
 	[SerializeField]
 	private AudioSource[] effectsASource;
-	private Queue<AudioSource> effectsASourceQueue;
 	[SerializeField]
 	private AudioClip[] musicClips;
+
+	private Queue<AudioSource> effectsASourceQueue;
+	private List<int> fadeIn;
+	private List<int> fadeOut;
+	private float musicVolume;
+	private float effectsVolume;
 
 	private static SoundManager instance;
 	public static SoundManager Instance
@@ -37,23 +48,100 @@ public class SoundManager : MonoBehaviour
 		}
 
 		effectsASourceQueue = new Queue<AudioSource>();
-		for (int i = 0; i < effectsASource.Length; ++i)
+		fadeIn = new List<int>();
+		fadeOut = new List<int>();
+		for (int i = 0; i < GENERIC_ASOURCES; ++i)
 		{
 			effectsASourceQueue.Enqueue(effectsASource[i]);
+		}
+	}
+
+	void Start ()
+	{
+		musicVolume = OptionsManager.Instance.GetmusicVolume();
+		effectsVolume = OptionsManager.Instance.GeteffectsVolume();
+
+	}
+
+	void FixedUpdate ()
+	{
+		for (int i = fadeIn.Count - 1; i >= 0; --i)
+		{
+			int index = fadeIn[i];
+			if (effectsASource[index].volume < effectsVolume)
+			{
+				effectsASource[index].volume += 0.5f * Time.fixedDeltaTime;
+			}
+			else
+			{
+				fadeIn.RemoveAt(i);
+			}
+		}
+		for (int i = fadeOut.Count - 1; i >= 0; --i)
+		{
+			int index = fadeOut[i];
+			if (effectsASource[index].volume > 0)
+			{
+				effectsASource[index].volume -= 0.5f * Time.fixedDeltaTime;
+			}
+			else
+			{
+				effectsASource[index].Stop();
+				fadeOut.RemoveAt(i);
+			}
 		}
 	}
 
 
 	public void SetMusicVolume (float musicVolume)
 	{
+		this.musicVolume = musicVolume;
 		musicASource.volume = musicVolume;
 	}
 
-	public void SetEffectVolume (float effectVolume)
+	public void SetEffectVolume (float effectsVolume)
 	{
-		for (int i = 0; i < effectsASource.Length; ++i)
+		this.effectsVolume = effectsVolume;
+		for (int i = 0; i < GENERIC_ASOURCES; ++i)
 		{
-			effectsASource[i].volume = effectVolume;
+			effectsASource[i].volume = effectsVolume;
+		}
+	}
+
+	public void LoopEffect (int index, AudioClip clip, bool fade)
+	{
+		effectsASource[index].clip = clip;
+		effectsASource[index].loop = true;
+		if (fade && !effectsASource[index].isPlaying)
+		{
+			effectsASource[index].volume = 0;
+			fadeIn.Add(index);
+		}
+		else if (fade)
+		{
+			fadeIn.Add(index);
+		}
+		else
+		{
+			effectsASource[index].volume = effectsVolume;
+		}
+		if (effectsASource[index].isPlaying)
+		{
+			fadeOut.Remove(index);
+		}
+		effectsASource[index].Play();
+	}
+
+	public void StopLoopEffect (int index, bool fade)
+	{
+		fadeIn.Remove(index);
+		if (fade)
+		{
+			fadeOut.Add(index);
+		}
+		else
+		{
+			effectsASource[index].Stop();
 		}
 	}
 
