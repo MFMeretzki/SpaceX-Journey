@@ -22,7 +22,7 @@
 		
 		<!-- Credits menu -->
 		<Text id="credits">Créditos</Text>
-		<Text id="credits_text"></Text>
+		<Text id="credits_text"></Text>	
 
 		<!-- Pause menu -->
 		<Text id="pause_restart">Reiniciar</Text>

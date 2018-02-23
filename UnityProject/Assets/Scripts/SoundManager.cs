@@ -13,7 +13,6 @@ public class SoundManager : MonoBehaviour
 	[SerializeField]
 	private AudioClip[] musicClips;
 
-
 	private static SoundManager instance;
 	public static SoundManager Instance
 	{
@@ -34,6 +33,7 @@ public class SoundManager : MonoBehaviour
 		else
 		{
 			Destroy(gameObject);
+			return;
 		}
 
 		effectsASourceQueue = new Queue<AudioSource>();
@@ -64,23 +64,19 @@ public class SoundManager : MonoBehaviour
 	public void PlayEffect (AudioClip clip)
 	{
 		if (effectsASourceQueue.Count > 0)
-		{ 
+		{
 			AudioSource aSource = effectsASourceQueue.Dequeue();
+			if (aSource.isPlaying) aSource.Stop();
 			aSource.clip = clip;
-			CoroutinePlayEffect(aSource);
+			aSource.Play();
+			effectsASourceQueue.Enqueue(aSource);
 		}
 		else
 		{
 			Debug.Log("<color=yellow>Warning: too many sound effects at once, all audiosources are in use</color>");
 		}
 	}
-
-	IEnumerator CoroutinePlayEffect (AudioSource source)
-	{
-		source.Play();
-		yield return new WaitForSeconds(source.clip.length);
-		effectsASourceQueue.Enqueue(source);
-	}
+	
 
 	/// <summary>
 	/// Plays a music clip(previously stored in an array)  in loop until another music clip starts.
