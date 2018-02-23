@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CreditsMenu : BasePanel
 {
 
-	private const string TITLE_ID = "credits";
+	private const string TITLE_ID = "main_menu_credits";
 	private const string CREDITS_ID = "credits_text";
 	private const string RETURN_ID = "options_menu_return";
 

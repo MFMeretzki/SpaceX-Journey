@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Root>
-  <Texts>
-	  <!-- Main menu -->
-	  <Text id="main_menu_play">Jugar</Text>
-	  <Text id="main_menu_highscores">Récords</Text>
-	  <Text id="main_menu_options">Opciones</Text>
-	  <Text id="main_menu_credits">Créditos</Text>
-	  <Text id="main_menu_exit">Salir</Text>
-	
-	  <!-- Options menu -->
-	  <Text id="options_menu_language">Idioma</Text>
-	  <Text id="options_menu_music_volume">Música</Text>
-	  <Text id="options_menu_effects_volume">Sonido</Text>
-	  <Text id="options_menu_return">Volver</Text>
-	
-	  <!-- Scores menu -->
-	  <Text id="scores_highscores">Récords</Text>
-	  <Text id="scores_player">Jugador</Text>
-	  <Text id="scores_points">Puntos</Text>
+	<Texts>
+		<!-- Main menu -->
+		<Text id="main_menu_play">Jugar</Text>
+		<Text id="main_menu_highscores">Récords</Text>
+		<Text id="main_menu_options">Opciones</Text>
+		<Text id="main_menu_credits">Créditos</Text>
+		<Text id="main_menu_exit">Salir</Text>
 
-    <!-- Pause menu -->
-    <Text id="pause_restart">Reiniciar</Text>
-    <Text id="pause_options">Opciones</Text>
-    <Text id="pause_main_menu">Menú Principal</Text>
-    <Text id="pause_exit">Salir</Text>
+		<!-- Options menu -->
+		<Text id="options_menu_language">Idioma</Text>
+		<Text id="options_menu_music_volume">Música</Text>
+		<Text id="options_menu_effects_volume">Sonido</Text>
+		<Text id="options_menu_return">Volver</Text>
 
-    <!-- Game over menu -->
-    <Text id="gameover_restart">Reiniciar</Text>
-    <Text id="gameover_main_menu">Menú Principal</Text>
-    <Text id="gameover_out_of_fuel">Después de quedarse sin combustible la nave viajó a la deriva hasta que se estrello en un planeta desierto.</Text>
-    <Text id="gameover_ship_destroyed">Tras un impacto brutal la nave explotó en mil pedazos matando a toda la tripulación.</Text>
-  </Texts>
+		<!-- Scores menu -->
+		<Text id="scores_highscores">Récords</Text>
+		<Text id="scores_player">Jugador</Text>
+		<Text id="scores_points">Puntos</Text>
+
+		<!-- Credits menu -->
+		<Text id="credits_text"></Text>
+		
+		<!-- Pause menu -->
+		<Text id="pause_restart">Reiniciar</Text>
+		<Text id="pause_options">Opciones</Text>
+		<Text id="pause_main_menu">Menú Principal</Text>
+		<Text id="pause_exit">Salir</Text>
+
+		<!-- Game over menu -->
+		<Text id="gameover_restart">Reiniciar</Text>
+		<Text id="gameover_main_menu">Menú Principal</Text>
+		<Text id="gameover_out_of_fuel">Después de quedarse sin combustible la nave viajó a la deriva hasta que se estrello en un planeta desierto.</Text>
+		<Text id="gameover_ship_destroyed">Tras un impacto brutal la nave explotó en mil pedazos matando a toda la tripulación.</Text>
+	</Texts>
 </Root>
