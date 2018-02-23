@@ -27,6 +27,7 @@ public class GameSettings : MonoBehaviour {
 		else
 		{
 			Destroy(gameObject);
+			return;
 		}
 
 		scoresList = new List<ScoreData>();
