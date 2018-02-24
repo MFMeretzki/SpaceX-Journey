@@ -14,6 +14,7 @@ public class Spaceship : CosmicBody
 	public float fuelConsumption;
 	public float maxLandingVelocity;
 	public AudioClip thrustersAClip;
+	public AudioSource thrustersAS;
 
 	private GameController gameController;
 	private Animator animator;
@@ -30,6 +31,9 @@ public class Spaceship : CosmicBody
 		base.Start();
 		direction = Vector2.up;
 		thrust = 0;
+		thrustersAS.volume = 0;
+		thrustersAS.clip = thrustersAClip;
+		thrustersAS.loop = true;
 	}
 	
 	protected override void Update ()
@@ -48,20 +52,30 @@ public class Spaceship : CosmicBody
             {
                 animator.SetFloat("thrustersActive", 0);
                 thrustersActive = false;
-				SoundManager.Instance.StopLoopEffect(SoundManager.THRUSTERS_ASOURCE_INDEX, true);
 			}
             else if (!thrustersActive && inputC.ThrustersBurning())
             {
                 animator.SetBool("thrustersBurning", true);
                 animator.SetFloat("thrustersActive", 10);
                 thrustersActive = true;
-				SoundManager.Instance.LoopEffect(SoundManager.THRUSTERS_ASOURCE_INDEX, thrustersAClip, true);
             }
             else if (thrustersActive == false && thrust == 0)
             {
                 animator.SetBool("thrustersBurning", false);
             }
-            animator.SetFloat("thrustersPotency", thrust / thrustersForce);
+			float t = thrust / thrustersForce;
+            animator.SetFloat("thrustersPotency", t);
+			thrustersAS.volume = t * OptionsManager.Instance.GeteffectsVolume();
+
+			if (t > 0 && !thrustersAS.isPlaying)
+			{
+				thrustersAS.Play();	
+			}
+			else if (t <= 0)
+			{
+				thrustersAS.Stop();
+				thrustersAS.volume = 0;
+			}
         }
 	}
 
