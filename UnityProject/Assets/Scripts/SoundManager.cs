@@ -9,9 +9,10 @@ public class SoundManager : MonoBehaviour
 	private AudioSource musicASource;
 	[SerializeField]
 	private AudioSource[] effectsASource;
-	private Queue<AudioSource> effectsASourceQueue;
 	[SerializeField]
 	private AudioClip[] musicClips;
+
+	private Queue<AudioSource> effectsASourceQueue;
 
 	private static SoundManager instance;
 	public static SoundManager Instance
@@ -49,13 +50,14 @@ public class SoundManager : MonoBehaviour
 		musicASource.volume = musicVolume;
 	}
 
-	public void SetEffectVolume (float effectVolume)
+	public void SetEffectVolume (float effectsVolume)
 	{
 		for (int i = 0; i < effectsASource.Length; ++i)
 		{
-			effectsASource[i].volume = effectVolume;
+			effectsASource[i].volume = effectsVolume;
 		}
 	}
+
 
 	/// <summary>
 	/// Plays a sound effect, if all audiosources are being used prints a message
