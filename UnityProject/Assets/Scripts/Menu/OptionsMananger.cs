@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OptionsManager
 {
@@ -56,7 +56,7 @@ public class OptionsManager
 		language = newLanguage;
 		PlayerPrefs.SetString(LANGUAGE, language);
 		Localization.Instance.SetLanguage(language);
-		ChangeLanguage();
+		OnLanguageChange();
 	}
 
 	public void SetMusicVolume (float newMusicVolume)
@@ -75,15 +75,10 @@ public class OptionsManager
 	}
 
     #region events
-    public delegate void LanguageChangeDelegate ();
-    private LanguageChangeDelegate LanguageChange;
-    public event LanguageChangeDelegate OnLanguageChange
-    {
-        add { LanguageChange += value; }
-        remove { LanguageChange -= value; }
-    }
+    public delegate void LanguageChangeHandler ();
+	public event LanguageChangeHandler LanguageChange;
 
-    private void ChangeLanguage ()
+    private void OnLanguageChange ()
     {
         if (LanguageChange != null) { LanguageChange(); }
     }

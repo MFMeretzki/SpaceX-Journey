@@ -1,4 +1,4 @@
-
+﻿
 using System.Collections;
 using UnityEngine;
 
@@ -26,6 +26,7 @@ public class Spaceship : CosmicBody
 	protected override void Start ()
 	{
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+		gameController.GamePause += OnGamePause;
 		animator = GetComponentInChildren<Animator>();
 
 		base.Start();
@@ -152,6 +153,18 @@ public class Spaceship : CosmicBody
 	protected void OnCollissionExit2D (Collision2D collision)
 	{
 		landed = false;
+	}
+
+	protected void OnGamePause (bool paused)
+	{
+		if (paused)
+		{
+			thrustersAS.Pause();
+		}
+		else
+		{
+			thrustersAS.UnPause();
+		}
 	}
 
 

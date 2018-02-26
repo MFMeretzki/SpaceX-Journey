@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -40,22 +40,22 @@ public class GameController : MonoBehaviour {
     private float fuelCapacity;
     public float FuelCapacity { get{return fuelCapacity;} }
     private float fuel;
-
     private int ore;
 
-    public void Awake ()
+
+    void Awake ()
     {
         gameOver = false;
         paused = false;
         Planet = null;
         fuel = fuelCapacity;
         ore = 0;
-    }
+	}
 
-    public void Start () { }
-    public void Update () { }
+	void Start () { }
+	void Update () { }
 
-    public void OnDisable ()
+	void OnDisable ()
     {
         GameController.Pause(false);
     }
@@ -105,23 +105,17 @@ public class GameController : MonoBehaviour {
         bool p = !GameController.Paused;
         GameController.Pause(p);
         pauseMenu.SetActive(p);
+		if (GamePause != null) GamePause(p);
     }
 
     #region Events
     public delegate void FuelChangeDelegate (float fuel);
-    private FuelChangeDelegate FuelChange;
-    public event FuelChangeDelegate OnFuelChange
-    {
-        add { FuelChange += value; }
-        remove { FuelChange -= value; }
-    }
+	public event FuelChangeDelegate FuelChange;
 
     public delegate void OreChangeDelegate (int fuel);
-    private OreChangeDelegate OreChange;
-    public event OreChangeDelegate OnOreChange
-    {
-        add { OreChange += value; }
-        remove { OreChange -= value; }
-    }
+	public event OreChangeDelegate OreChange;
+
+	public delegate void GamePauseDelegate (bool paused);
+	public event GamePauseDelegate GamePause;
     #endregion
 }
