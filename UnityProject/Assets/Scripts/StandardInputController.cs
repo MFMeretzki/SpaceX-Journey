@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardInput : InputController {
+public class StandardInputController : InputController {
 
 	private Camera mCamera;
 
@@ -16,7 +16,6 @@ public class StandardInput : InputController {
 	{
 		
 	}
-
 
 	public override bool ThrustersBurning ()
 	{
