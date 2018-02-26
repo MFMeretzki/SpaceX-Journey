@@ -16,7 +16,7 @@ public class OreIndicator : MonoBehaviour
 
     protected void OnEnable ()
     {
-        gameController.OnOreChange += OnOreChanges;
+        gameController.OreChange += OnOreChanges;
     }
 
     protected void Start () { }
@@ -24,7 +24,7 @@ public class OreIndicator : MonoBehaviour
 
     protected void OnDisable ()
     {
-        gameController.OnOreChange -= OnOreChanges;
+        gameController.OreChange -= OnOreChanges;
     }
 
     private void OnOreChanges (int ore)

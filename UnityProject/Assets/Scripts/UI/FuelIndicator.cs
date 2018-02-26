@@ -17,7 +17,7 @@ public class FuelIndicator : MonoBehaviour
 
     protected void OnEnable ()
     {
-        gameController.OnFuelChange += OnFuelChanges;
+        gameController.FuelChange += OnFuelChanges;
     }
 
     protected void Start () { }
@@ -25,7 +25,7 @@ public class FuelIndicator : MonoBehaviour
 
     protected void OnDisable ()
     {
-        gameController.OnFuelChange -= OnFuelChanges;
+        gameController.FuelChange -= OnFuelChanges;
     }
 
     private void OnFuelChanges (float fuel)

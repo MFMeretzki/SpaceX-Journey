@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BasePanel : MonoBehaviour
 {
@@ -8,12 +8,12 @@ public class BasePanel : MonoBehaviour
 
 	protected void OnEnable ()
 	{
-		OptionsManager.Instance.OnLanguageChange += OnLanguageChange;
+		OptionsManager.Instance.LanguageChange += OnLanguageChange;
 	}
 
 	protected void OnDisable ()
 	{
-		OptionsManager.Instance.OnLanguageChange -= OnLanguageChange;
+		OptionsManager.Instance.LanguageChange -= OnLanguageChange;
 	}
 
 	protected virtual void OnLanguageChange ()
