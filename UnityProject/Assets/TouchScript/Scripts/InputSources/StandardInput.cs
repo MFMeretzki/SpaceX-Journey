@@ -145,7 +145,7 @@ namespace TouchScript.InputSources
 
         private static StandardInput instance;
 
-#pragma warning disable CS0414
+#pragma warning disable 414
 
 		[SerializeField]
         [HideInInspector]
@@ -159,7 +159,7 @@ namespace TouchScript.InputSources
 		[HideInInspector]
 		private bool webglProps; // Used in the custom inspector
 
-#pragma warning restore CS0414
+#pragma warning restore 414
 
 		[SerializeField]
         private Windows8APIType windows8API = Windows8APIType.Windows8;

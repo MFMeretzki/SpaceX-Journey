@@ -126,7 +126,7 @@ namespace TouchScript.Layers
 #endif
         private static RaycastHit2D[] raycastHits2D = new RaycastHit2D[20];
 
-#pragma warning disable CS0414
+#pragma warning disable 414
 
 		[SerializeField]
 		[HideInInspector]
@@ -136,7 +136,7 @@ namespace TouchScript.Layers
         [HideInInspector]
         private bool advancedProps; // is used to save if advanced properties are opened or closed
 
-#pragma warning restore CS0414
+#pragma warning restore 414
 
 		[SerializeField]
         [HideInInspector]
