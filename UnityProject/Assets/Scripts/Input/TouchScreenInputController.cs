@@ -44,13 +44,14 @@ public class TouchScreenInputController : InputController
 
     public override Vector2 GetDirection ()
     {
-        Vector3 point = mCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 point = mCamera.ScreenToWorldPoint(pointer);
         return (point - mCamera.transform.position).normalized;
     }
 
     private void OnPressed (object sender, System.EventArgs e)
     {
         pressed = true;
+        pointer = gesture.PointerPosition;
     }
 
     private void OnMoved (object sender, System.EventArgs e)
