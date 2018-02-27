@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour {
 		if (pos.x > 0 && pos.x < 1 && pos.y > 0 && pos.y < 1)
 		{
 			audioSource.clip = explosionClip;
-			audioSource.volume = OptionsManager.Instance.GeteffectsVolume();
+			audioSource.volume = OptionsManager.Instance.GetEffectsVolume();
 			audioSource.Play();
 		}
 	}

@@ -13,6 +13,9 @@ public class SoundManager : MonoBehaviour
 	private AudioClip[] musicClips;
 
 	private Queue<AudioSource> effectsASourceQueue;
+	private bool musicFadeIn = false;
+	private bool musicFadeOut = false;
+	private float fadeStep;
 
 	private static SoundManager instance;
 	public static SoundManager Instance
@@ -37,12 +40,35 @@ public class SoundManager : MonoBehaviour
 			return;
 		}
 
+		musicASource.volume = OptionsManager.Instance.GetMusicVolume();
+
 		effectsASourceQueue = new Queue<AudioSource>();
+		float eVolume = OptionsManager.Instance.GetEffectsVolume();
 		for (int i = 0; i < effectsASource.Length; ++i)
 		{
+			effectsASource[i].volume = eVolume;
 			effectsASourceQueue.Enqueue(effectsASource[i]);
 		}
 	}
+
+	void FixedUpdate ()
+	{
+		if (musicFadeIn)
+		{
+			musicASource.volume += fadeStep;
+			if (musicASource.volume >= OptionsManager.Instance.GetMusicVolume())
+			{
+				musicASource.volume = OptionsManager.Instance.GetMusicVolume();
+				musicFadeIn = false;
+			}
+		}
+		if (musicFadeOut)
+		{
+			musicASource.volume += fadeStep;
+			if (musicASource.volume <= 0) musicFadeOut = false;
+		}
+	}
+
 
 
 	public void SetMusicVolume (float musicVolume)
@@ -86,14 +112,52 @@ public class SoundManager : MonoBehaviour
 	/// <param name="ID">Identifier of the music clip to play</param>
 	public void PlayMusic (ushort ID)
 	{
+		PlayMusic(ID, false, 0);
+	}
+
+	public void PlayMusic (ushort ID, bool fadeIn, float time)
+	{
 		if (musicASource.isPlaying)
 		{
 			musicASource.Stop();
 		}
 		musicASource.clip = musicClips[ID];
 		musicASource.loop = true;
+		if (fadeIn)
+		{
+			musicASource.volume = 0;
+			MusicFadeIn(time);
+		}
+		else
+		{
+			musicASource.volume = OptionsManager.Instance.GetMusicVolume();
+		}
 		musicASource.Play();
 	}
 
+	public void StopMusic ()
+	{
+		musicASource.Stop();
+	}
 
+	public void PauseMusic (bool paused)
+	{
+		if (paused) musicASource.Pause();
+		else musicASource.UnPause();
+	}
+
+	public void MusicFadeIn (float time)
+	{
+		musicFadeIn = true;
+		musicFadeOut = false;
+		float target = OptionsManager.Instance.GetMusicVolume();
+		fadeStep = target / (time / Time.fixedDeltaTime);
+	}
+
+	public void MusicFadeOut (float time)
+	{
+		musicFadeOut = true;
+		musicFadeIn = false;
+		fadeStep = -musicASource.volume / (time / Time.fixedDeltaTime);
+	}
 }

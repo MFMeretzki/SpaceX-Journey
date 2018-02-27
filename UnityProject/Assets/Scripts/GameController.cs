@@ -52,12 +52,17 @@ public class GameController : MonoBehaviour {
         ore = 0;
 	}
 
-	void Start () { }
+	void Start ()
+	{
+		SoundManager.Instance.PlayMusic(0, true, 2f);
+	}
+
 	void Update () { }
 
 	void OnDisable ()
     {
         GameController.Pause(false);
+		SoundManager.Instance.StopMusic();
     }
 
     public void FuelConsumption(float volumeConsumed)
@@ -83,14 +88,23 @@ public class GameController : MonoBehaviour {
 	public void ShipDestroied ()
 	{
 		ship.gameObject.SetActive(false);
-        if (!gameOver)
-		    StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, 2f));
+		if (!gameOver)
+		{
+			float seconds = 2f;
+			SoundManager.Instance.MusicFadeOut(seconds);
+			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, seconds));
+		}
 	}
 
     private void OutOfFuel ()
     {
-        if (!gameOver)
-            StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.OutOfFuel, 2f));
+		if (!gameOver)
+		{
+			float seconds = 2f;
+			SoundManager.Instance.MusicFadeOut(seconds);
+			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.OutOfFuel, seconds));
+		}
+
     }
 
 	private IEnumerator GameOverCoroutine (GameOverScreen.GameOver gameOverCause, float seconds)
@@ -105,6 +119,7 @@ public class GameController : MonoBehaviour {
         bool p = !GameController.Paused;
         GameController.Pause(p);
         pauseMenu.SetActive(p);
+		SoundManager.Instance.PauseMusic(p);
 		if (GamePause != null) GamePause(p);
     }
 

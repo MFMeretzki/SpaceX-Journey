@@ -41,12 +41,12 @@ public class OptionsManager
 		return language;
 	}
 
-	public float GeteffectsVolume ()
+	public float GetEffectsVolume ()
 	{
 		return effectsVolume;
 	}
 
-	public float GetmusicVolume ()
+	public float GetMusicVolume ()
 	{
 		return musicVolume;
 	}

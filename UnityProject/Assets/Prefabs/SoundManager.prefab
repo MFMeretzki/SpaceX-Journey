@@ -462,4 +462,5 @@ MonoBehaviour:
   - {fileID: 82512719826827782}
   - {fileID: 82292067542251160}
   - {fileID: 82012904842408866}
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 636274b25bd72df4ea281414c7839cb1, type: 3}

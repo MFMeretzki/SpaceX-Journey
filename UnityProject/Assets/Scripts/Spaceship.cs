@@ -68,7 +68,7 @@ public class Spaceship : CosmicBody
             }
 			float t = thrust / thrustersForce;
             animator.SetFloat("thrustersPotency", t);
-			thrustersAS.volume = t * OptionsManager.Instance.GeteffectsVolume();
+			thrustersAS.volume = t * OptionsManager.Instance.GetEffectsVolume();
 
 			if (t > 0 && !thrustersAS.isPlaying)
 			{

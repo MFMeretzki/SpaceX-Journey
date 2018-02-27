@@ -24,8 +24,8 @@ public class OptionsMenu : BasePanel {
 	void Start ()
 	{
 		OnLanguageChange();
-		musicVolumeSlider.value = OptionsManager.Instance.GetmusicVolume();
-		effectsVolumeSlider.value = OptionsManager.Instance.GeteffectsVolume();
+		musicVolumeSlider.value = OptionsManager.Instance.GetMusicVolume();
+		effectsVolumeSlider.value = OptionsManager.Instance.GetEffectsVolume();
 	}
 
 
