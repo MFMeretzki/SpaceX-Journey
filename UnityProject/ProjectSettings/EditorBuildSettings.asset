@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 55c196569aff932409d1951a60315227
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 264460aa45742b24b9f7c5b25fdfde83
+  - enabled: 1
+    path: Assets/Scenes/MijailMenu.unity
+    guid: 565939211b35d9d438b9d96dccbb53b2
+  - enabled: 1
+    path: Assets/Scenes/MijailGame.unity
+    guid: afc24684afb975048a0224d470235e0c

@@ -10,10 +10,9 @@ Shader "Custom/RadarIndicatorShader"
 	}
 	SubShader
 	{
-		Tags { 
-		"RenderType"="Opaque"
-		"Queue" = "Transparent+1"
-		}
+		Tags { "Queue"="Transparent" "RenderType" = "Transparent" }
+		Blend SrcAlpha OneMinusSrcAlpha
+		ZTest Always
 
 		Pass
 		{

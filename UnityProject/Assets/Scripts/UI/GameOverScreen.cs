@@ -65,13 +65,13 @@ public class GameOverScreen : MonoBehaviour {
     public void RestartButtonClick ()
     {
         SaveRecord();
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenuButtonClick ()
     {
         SaveRecord();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     private string Message (GameOver gameOverCause)

@@ -25,7 +25,7 @@ public class PauseMenuController : BasePanel
 
     public void RestartButtonClick ()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
     }
 
     public void OptionsButtonClick ()
@@ -35,7 +35,7 @@ public class PauseMenuController : BasePanel
 
     public void MainMenuButtonClick ()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public void ExitButtonClick ()
