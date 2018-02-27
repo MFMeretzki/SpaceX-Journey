@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212792070791534526}
   - component: {fileID: 95997554838638044}
   - component: {fileID: 114256311073593840}
+  - component: {fileID: 82612167328603644}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -42,6 +43,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82612167328603644
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044163968341148}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 10
+  MaxDistance: 10.1
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: -0.085990414
+      outSlope: -0.085990414
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.529572
+      value: 0.86296916
+      inSlope: -0.737242
+      outSlope: -0.737242
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.8932648
+      value: 0
+      inSlope: -0.7815629
+      outSlope: -0.7815629
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95997554838638044
 Animator:
   serializedVersion: 3
@@ -70,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67067526620dad54881973288c445fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: 20f3674ef198eee408870d423d105cda, type: 3}
+  audioSource: {fileID: 82612167328603644}
 --- !u!212 &212792070791534526
 SpriteRenderer:
   m_ObjectHideFlags: 1
