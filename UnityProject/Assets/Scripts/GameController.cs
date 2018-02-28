@@ -35,10 +35,11 @@ public class GameController : MonoBehaviour {
     private GameObject pauseMenu;
     [SerializeField]
     private GameOverScreen gameOverScreen;
-
     [SerializeField]
     private float fuelCapacity;
     public float FuelCapacity { get{return fuelCapacity;} }
+	public bool IngameSounds { private set; get; }
+
     private float fuel;
     private int ore;
 
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour {
 	void Start ()
 	{
 		SoundManager.Instance.PlayMusic(0, true, 2f);
+		IngameSounds = true;
 	}
 
 	void Update () { }
@@ -109,9 +111,10 @@ public class GameController : MonoBehaviour {
 
 	private IEnumerator GameOverCoroutine (GameOverScreen.GameOver gameOverCause, float seconds)
 	{
-        GameController.gameOver = true;
+		GameController.gameOver = true;
 		yield return new WaitForSeconds(seconds);
-        gameOverScreen.Show(gameOverCause, ore);
+		IngameSounds = false;
+		gameOverScreen.Show(gameOverCause, ore);
 	}
 
     public void MenuButtonPressed ()
@@ -124,13 +127,13 @@ public class GameController : MonoBehaviour {
     }
 
     #region Events
-    public delegate void FuelChangeDelegate (float fuel);
-	public event FuelChangeDelegate FuelChange;
+    public delegate void FuelChangeHandler (float fuel);
+	public event FuelChangeHandler FuelChange;
 
-    public delegate void OreChangeDelegate (int fuel);
-	public event OreChangeDelegate OreChange;
+    public delegate void OreChangeHandler (int fuel);
+	public event OreChangeHandler OreChange;
 
-	public delegate void GamePauseDelegate (bool paused);
-	public event GamePauseDelegate GamePause;
+	public delegate void GamePauseHandler (bool paused);
+	public event GamePauseHandler GamePause;
     #endregion
 }

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f849bdecd09984dbe81b0c6446d51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickSoundEffect: {fileID: 8300000, guid: 531db2a3904450b4db9573a4a384fdda, type: 3}
 --- !u!212 &212923909071055786
 SpriteRenderer:
   m_ObjectHideFlags: 1

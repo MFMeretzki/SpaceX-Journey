@@ -12,6 +12,7 @@ public class CollectableBarrel : CollectableItem
 
     protected override void PickItem ()
     {
+		base.PickItem();
         gameController.FuelCollected(fuel);
         GameObject.Destroy(this.gameObject);
     }

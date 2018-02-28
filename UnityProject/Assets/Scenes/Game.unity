@@ -4117,7 +4117,7 @@ MonoBehaviour:
   mapManager: {fileID: 229133633}
   pauseMenu: {fileID: 608321969}
   gameOverScreen: {fileID: 572509539}
-  fuelCapacity: 500
+  fuelCapacity: 100
 --- !u!4 &2125004472
 Transform:
   m_ObjectHideFlags: 0

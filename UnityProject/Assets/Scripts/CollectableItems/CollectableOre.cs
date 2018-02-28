@@ -12,6 +12,7 @@ public class CollectableOre : CollectableItem
 
     protected override void PickItem ()
     {
+		base.PickItem();
         gameController.OreCollected(ore);
         GameObject.Destroy(this.gameObject);
     }

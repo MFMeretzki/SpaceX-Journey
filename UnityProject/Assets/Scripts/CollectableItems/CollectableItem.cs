@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CollectableItem : MonoBehaviour {
 
+	[SerializeField]
+	protected AudioClip pickSoundEffect;
+
     protected GameController gameController;
 
     public virtual void Awake ()
@@ -26,6 +29,6 @@ public class CollectableItem : MonoBehaviour {
 
     protected virtual void PickItem ()
     {
-        GameObject.Destroy(this.gameObject);
+		SoundManager.Instance.PlayEffect(pickSoundEffect);
     }
 }
