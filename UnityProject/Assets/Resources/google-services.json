@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "217796560823",
+    "firebase_url": "https://space-x-journey.firebaseio.com",
+    "project_id": "space-x-journey",
+    "storage_bucket": "space-x-journey.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217796560823:android:3d967204b7f4b769",
+        "android_client_info": {
+          "package_name": "com.NextDimension.SpaceXJourney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217796560823-uotnkrakt5dtsf3828h98d7b6bormts0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-aDdbn5YkJjJYPs-T9D4qS5ZwpchkKqc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

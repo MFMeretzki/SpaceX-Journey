@@ -10,12 +10,9 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+- Download the GoogleMobileAds and the Firebase unitypackages
+- Import GoogleMobileAds.unitypackage and FirebaseAnalytics.unitypackage
+- Assets > Play Service Resolver > Android Resolver > Resolve to resolve the android dependecies
 
 ### Contribution guidelines ###
 

@@ -22,3 +22,13 @@ Build/
 
 *.exe
 *.pdb
+
+
+#google abmob and firebase plugins
+
+Assets/Editor Default Resources*
+Assets/Firebase*
+Assets/GoogleMobileAds*
+Assets/Parse*
+Assets/PlayServicesResolver*
+Assets/Plugins*
