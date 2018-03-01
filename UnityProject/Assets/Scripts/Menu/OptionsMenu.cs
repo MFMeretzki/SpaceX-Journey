@@ -58,8 +58,8 @@ public class OptionsMenu : BasePanel {
 		OnLanguageChange();
         OnControlsChange();
 
-        musicVolumeSlider.value = OptionsManager.Instance.GetmusicVolume();
-		effectsVolumeSlider.value = OptionsManager.Instance.GeteffectsVolume();
+        musicVolumeSlider.value = OptionsManager.Instance.GetMusicVolume();
+		effectsVolumeSlider.value = OptionsManager.Instance.GetEffectsVolume();
 	}
 
     protected override void OnDisable ()
