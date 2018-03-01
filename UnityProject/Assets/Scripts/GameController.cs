@@ -35,10 +35,11 @@ public class GameController : MonoBehaviour {
     private GameObject pauseMenu;
     [SerializeField]
     private GameOverScreen gameOverScreen;
-
     [SerializeField]
     private float fuelCapacity;
     public float FuelCapacity { get{return fuelCapacity;} }
+	public bool IngameSounds { private set; get; }
+
     private float fuel;
     private int ore;
 
@@ -52,12 +53,18 @@ public class GameController : MonoBehaviour {
         ore = 0;
 	}
 
-	void Start () { }
+	void Start ()
+	{
+		SoundManager.Instance.PlayMusic(0, true, 2f);
+		IngameSounds = true;
+	}
+
 	void Update () { }
 
 	void OnDisable ()
     {
         GameController.Pause(false);
+		SoundManager.Instance.StopMusic();
     }
 
     public void FuelConsumption(float volumeConsumed)
@@ -83,21 +90,31 @@ public class GameController : MonoBehaviour {
 	public void ShipDestroied ()
 	{
 		ship.gameObject.SetActive(false);
-        if (!gameOver)
-		    StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, 2f));
+		if (!gameOver)
+		{
+			float seconds = 2f;
+			SoundManager.Instance.MusicFadeOut(seconds);
+			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, seconds));
+		}
 	}
 
     private void OutOfFuel ()
     {
-        if (!gameOver)
-            StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.OutOfFuel, 2f));
+		if (!gameOver)
+		{
+			float seconds = 2f;
+			SoundManager.Instance.MusicFadeOut(seconds);
+			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.OutOfFuel, seconds));
+		}
+
     }
 
 	private IEnumerator GameOverCoroutine (GameOverScreen.GameOver gameOverCause, float seconds)
 	{
-        GameController.gameOver = true;
+		GameController.gameOver = true;
 		yield return new WaitForSeconds(seconds);
-        gameOverScreen.Show(gameOverCause, ore);
+		IngameSounds = false;
+		gameOverScreen.Show(gameOverCause, ore);
 	}
 
     public void MenuButtonPressed ()
@@ -105,17 +122,18 @@ public class GameController : MonoBehaviour {
         bool p = !GameController.Paused;
         GameController.Pause(p);
         pauseMenu.SetActive(p);
+		SoundManager.Instance.PauseMusic(p);
 		if (GamePause != null) GamePause(p);
     }
 
     #region Events
-    public delegate void FuelChangeDelegate (float fuel);
-	public event FuelChangeDelegate FuelChange;
+    public delegate void FuelChangeHandler (float fuel);
+	public event FuelChangeHandler FuelChange;
 
-    public delegate void OreChangeDelegate (int fuel);
-	public event OreChangeDelegate OreChange;
+    public delegate void OreChangeHandler (int fuel);
+	public event OreChangeHandler OreChange;
 
-	public delegate void GamePauseDelegate (bool paused);
-	public event GamePauseDelegate GamePause;
+	public delegate void GamePauseHandler (bool paused);
+	public event GamePauseHandler GamePause;
     #endregion
 }

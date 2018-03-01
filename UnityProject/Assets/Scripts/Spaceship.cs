@@ -17,6 +17,7 @@ public class Spaceship : CosmicBody
 	public AudioSource thrustersAS;
 
 	private GameController gameController;
+	private BoxCollider2D collider2d;
 	private Animator animator;
 	private Vector2 direction;
 	private float thrust;
@@ -27,6 +28,7 @@ public class Spaceship : CosmicBody
 	{
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
 		gameController.GamePause += OnGamePause;
+		collider2d = GetComponent<BoxCollider2D>();
 		animator = GetComponentInChildren<Animator>();
 
 		base.Start();
@@ -40,12 +42,12 @@ public class Spaceship : CosmicBody
 	protected override void Update ()
 	{
 		base.Update();
-
+		
         if (!GameController.Paused)
         {
-            if (inputC.ChangeDirection())
+			if (!landed && inputC.ChangeDirection())
             {
-                direction = inputC.GetDirection();
+				direction = inputC.GetDirection();
                 transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
             }
 
@@ -66,7 +68,7 @@ public class Spaceship : CosmicBody
             }
 			float t = thrust / thrustersForce;
             animator.SetFloat("thrustersPotency", t);
-			thrustersAS.volume = t * OptionsManager.Instance.GeteffectsVolume();
+			thrustersAS.volume = t * OptionsManager.Instance.GetEffectsVolume();
 
 			if (t > 0 && !thrustersAS.isPlaying)
 			{
@@ -135,14 +137,16 @@ public class Spaceship : CosmicBody
 				gameController.Planet.transform.position - transform.position
 				);
 			float angle = Vector2.Angle(shipPlanetDir.normalized, -direction);
+			float radius = gameController.Planet.planetProperties.planetRadius;
 			if (angle > ANGLE_TOLERANCE)
 			{
 				landed = false;
 				GameOver();
 			}
-			else if (angle < ANGLE_TOLERANCE &&
-				shipPlanetDir.magnitude < gameController.Planet.planetProperties.planetRadius + 0.15f &&
-				rigidbody2d.velocity.magnitude == 0)
+			
+			else if (angle <= ANGLE_TOLERANCE &&
+				shipPlanetDir.magnitude <= radius + (collider2d.size.y/2.0f) + 0.1f &&
+				rigidbody2d.velocity.magnitude < 0.0001)
 			{
 				landed = true;
 			}
