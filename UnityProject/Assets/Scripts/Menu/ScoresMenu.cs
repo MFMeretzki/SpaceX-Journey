@@ -1,21 +1,24 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoresMenu : BasePanel
 {
 	private const string TITLE_ID = "scores_highscores";
+    private const string RETURN_ID = "scores_menu_return";
 
 
-	[SerializeField]
+    [SerializeField]
 	private Text titleText;
 	[SerializeField]
 	private Text[] playersText;
 	[SerializeField]
 	private Text[] pointsText;
-	
+    [SerializeField]
+    private Text returnText;
 
-	void Start ()
+
+    void Start ()
 	{
 		OnLanguageChange();
 
@@ -39,5 +42,6 @@ public class ScoresMenu : BasePanel
 	protected override void OnLanguageChange ()
 	{
 		titleText.text = Localization.Instance.GetText(TITLE_ID);
-	}
+        returnText.text = Localization.Instance.GetText(RETURN_ID);
+    }
 }

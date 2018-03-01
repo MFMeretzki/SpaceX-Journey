@@ -1436,6 +1436,10 @@ Prefab:
       propertyPath: m_Name
       value: Cursors
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0dc5781cae4a6348b42ea6b818a3f9c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0dc5781cae4a6348b42ea6b818a3f9c, type: 2}
   m_IsPrefabParent: 0
@@ -3868,6 +3872,7 @@ MonoBehaviour:
   - {fileID: 1550807423}
   - {fileID: 1008764560}
   - {fileID: 45422067}
+  returnText: {fileID: 130037532}
 --- !u!1001 &1064622737
 Prefab:
   m_ObjectHideFlags: 0

@@ -1,17 +1,21 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class BasePanel : MonoBehaviour
 {
 	[SerializeField]
 	protected MenuController menuController;
 
+    protected virtual void Awake ()
+    {
 
-	protected void OnEnable ()
+    }
+
+	protected virtual void OnEnable ()
 	{
 		OptionsManager.Instance.LanguageChange += OnLanguageChange;
 	}
 
-	protected void OnDisable ()
+    protected virtual void OnDisable ()
 	{
 		OptionsManager.Instance.LanguageChange -= OnLanguageChange;
 	}
