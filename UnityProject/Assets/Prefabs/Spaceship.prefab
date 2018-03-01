@@ -89,7 +89,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.2
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -326,8 +326,6 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0}
   initialAngularVelocity: 0
   maxCollisionVelocity: 0.5
-  explosionClip: {fileID: 8300000, guid: b0c669150a9fcee4ebd387cf97239f68, type: 3}
-  audioSource: {fileID: 82875435013674904}
   inputC: {fileID: 114048505950485196}
   thrustersForce: 3
   delayUntilMaxThrust: 1
