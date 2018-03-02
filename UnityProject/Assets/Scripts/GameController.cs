@@ -43,7 +43,6 @@ public class GameController : MonoBehaviour {
     private float fuel;
     private int ore;
 
-
     void Awake ()
     {
         gameOver = false;

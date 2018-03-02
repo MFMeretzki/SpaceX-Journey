@@ -25,7 +25,7 @@ public class PauseMenuController : BasePanel
 
     public void RestartButtonClick ()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("InterstitialAd");
     }
 
     public void OptionsButtonClick ()

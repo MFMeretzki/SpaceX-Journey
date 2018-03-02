@@ -31,7 +31,7 @@ public class MainMenu : BasePanel
 
 	public void PlayButtonClick ()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("InterstitialAd");
 	}
 
 	public void ScoresButtonClick ()

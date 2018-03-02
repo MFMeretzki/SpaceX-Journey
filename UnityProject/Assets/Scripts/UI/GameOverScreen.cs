@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -33,8 +33,8 @@ public class GameOverScreen : MonoBehaviour {
     [SerializeField]
     Text placeholderText;
 
-    bool isNewRecord = true;
-    int points;
+    private bool isNewRecord = true;
+    private int points;
 
     private void OnEnable ()
     {
@@ -65,7 +65,7 @@ public class GameOverScreen : MonoBehaviour {
     public void RestartButtonClick ()
     {
         SaveRecord();
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("InterstitialAd");
     }
 
     public void MainMenuButtonClick ()
