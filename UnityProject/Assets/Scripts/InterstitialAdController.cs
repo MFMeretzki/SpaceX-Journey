@@ -8,10 +8,13 @@ public class InterstitialAdController : MonoBehaviour {
 	private bool showed = false;
 	private float startTime;
 
-	void Start () {
-		interstitialBuilder = GameObject.Find("InterstitialAd").GetComponent<InterstitialBuilder>();
-		interstitialBuilder.interAd.OnAdClosed += OnAdClosed;
 
+	void Awake ()
+	{
+		interstitialBuilder = GameObject.Find("InterstitialAd").GetComponent<InterstitialBuilder>();
+	}
+
+	void Start () {
 		startTime = Time.time;
 	}
 
@@ -29,6 +32,11 @@ public class InterstitialAdController : MonoBehaviour {
 			OnAdClosed(this, null);
 		}
 		#endif
+	}
+
+	void OnEnable ()
+	{
+		interstitialBuilder.interAd.OnAdClosed += OnAdClosed;
 	}
 
 	void OnDisable ()

@@ -3,6 +3,7 @@ Temp/
 Builds/
 .vs/
 Assets/TouchScript/Examples/
+Assets/TouchScript/**/*.dll
 
 ExportedObj/
 obj/
