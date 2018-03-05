@@ -71,8 +71,8 @@ public class PlanetFactory : MonoBehaviour {
     private void SetResources(GameObject planet, float planetRadius)
     {
         int oreNum = Random.Range(0, 3);
-        int barrelNum = Random.Range(0, 3);
-        Queue<float> angles = GenerateAngles(oreNum + barrelNum);
+        int barrelNum = Random.Range(0, 4);
+        Queue<float> angles = GenerateAngles(oreNum + 1);
 
         float angle;
         Vector3 position;
@@ -90,7 +90,22 @@ public class PlanetFactory : MonoBehaviour {
             go = GameObject.Instantiate(ore, position, rotation);
             go.transform.SetParent(planet.transform, false);
         }
+
+        /*
         for (int i = 0; i < barrelNum; ++i)
+        {
+            angle = angles.Dequeue();
+            position = new Vector3(
+                Mathf.Cos(angle) * (planetRadius + 0.03f),
+                Mathf.Sin(angle) * (planetRadius + 0.03f),
+                -0.5f
+                );
+            rotation = Quaternion.Euler(0.0f, 0.0f, (angle * Mathf.Rad2Deg) - 90.0f);
+            go = GameObject.Instantiate(barrel, position, rotation);
+            go.transform.SetParent(planet.transform, false);
+        }
+        */
+        if (barrelNum == 0)
         {
             angle = angles.Dequeue();
             position = new Vector3(

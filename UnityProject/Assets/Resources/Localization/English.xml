@@ -13,12 +13,16 @@
 		<Text id="options_menu_language">Language</Text>
 		<Text id="options_menu_music_volume">Music</Text>
 		<Text id="options_menu_effects_volume">Sound</Text>
+    <Text id="options_menu_controls">Controls</Text>
+    <Text id="options_menu_joystick">Joystick</Text>
+    <Text id="options_menu_touchngo">Touch'n Go</Text>
 		<Text id="options_menu_return">Return</Text>
 
 		<!-- Scores menu -->
 		<Text id="scores_highscores">High Scores</Text>
 		<Text id="scores_player">Player</Text>
 		<Text id="scores_points">Points</Text>
+    <Text id="scores_menu_return">Return</Text>
 		
 		<!-- Credits menu -->
 		<Text id="credits_text"></Text>
