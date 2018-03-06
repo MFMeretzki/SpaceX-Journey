@@ -65,6 +65,6 @@ public class InterstitialBuilder : MonoBehaviour {
 
 	private void OnFailedToLoad (object sender, AdFailedToLoadEventArgs args)
 	{
-		Debug.LogFormat("Interstitial ad failed to load: " + args.Message);
+		Debug.LogFormat("Interstitial ad failed to load: {0}", args.Message);
 	}
 }
