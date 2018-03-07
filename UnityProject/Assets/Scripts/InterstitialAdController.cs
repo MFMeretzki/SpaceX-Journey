@@ -11,7 +11,7 @@ public class InterstitialAdController : MonoBehaviour {
 
 	void Awake ()
 	{
-		interstitialBuilder = GameObject.Find("InterstitialAd").GetComponent<InterstitialBuilder>();
+		interstitialBuilder = InterstitialBuilder.Instance;
 	}
 
 	void Start () {
@@ -47,7 +47,6 @@ public class InterstitialAdController : MonoBehaviour {
 
 	private void OnAdClosed (object sender, EventArgs args)
 	{
-		if (!showed) interstitialBuilder.BuildNewInterstitial();
 		SceneManager.LoadScene("Game");
 	}
 }

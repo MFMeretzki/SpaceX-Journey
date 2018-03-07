@@ -18,6 +18,7 @@ public class PauseMenuController : BasePanel
     [SerializeField]
     private Text exitText;
 
+
     protected override void Awake ()
     {
         OnLanguageChange();

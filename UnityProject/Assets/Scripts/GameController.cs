@@ -66,6 +66,16 @@ public class GameController : MonoBehaviour {
 		SoundManager.Instance.StopMusic();
     }
 
+	void OnApplicationFocus (bool hasFocus)
+	{
+		if (!gameOver && !Paused && !hasFocus) PauseGame(true);
+	}
+
+	void OnApplicationPause (bool pauseStatus)
+	{
+		if (!gameOver && !Paused && pauseStatus) PauseGame(true);
+	}
+
     public void FuelConsumption(float volumeConsumed)
     {
         fuel -= volumeConsumed;
@@ -114,15 +124,21 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		IngameSounds = false;
 		gameOverScreen.Show(gameOverCause, ore);
+		if (GameOverEvent != null) GameOverEvent();
+	}
+
+	private void PauseGame (bool p)
+	{
+		GameController.Pause(p);
+		pauseMenu.SetActive(p);
+		SoundManager.Instance.PauseMusic(p);
+		if (GamePause != null) GamePause(p);
 	}
 
     public void MenuButtonPressed ()
     {
         bool p = !GameController.Paused;
-        GameController.Pause(p);
-        pauseMenu.SetActive(p);
-		SoundManager.Instance.PauseMusic(p);
-		if (GamePause != null) GamePause(p);
+		PauseGame(p);
     }
 
     #region Events
@@ -134,5 +150,8 @@ public class GameController : MonoBehaviour {
 
 	public delegate void GamePauseHandler (bool paused);
 	public event GamePauseHandler GamePause;
+
+	public delegate void GameOverHandler ();
+	public event GameOverHandler GameOverEvent;
     #endregion
 }

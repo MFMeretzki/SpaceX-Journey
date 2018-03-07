@@ -6,21 +6,41 @@ public class InterstitialBuilder : MonoBehaviour {
 
 	public InterstitialAd interAd;
 
+	private static InterstitialBuilder instance;
+	public static InterstitialBuilder Instance { get { return instance; } }
+
 	void Awake ()
 	{
-		DontDestroyOnLoad(gameObject);
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
 	}
 
 	void Start ()
 	{
-		BuildInterstitial();
-		interAd.OnAdClosed += DestroyInterstitial;
-		interAd.OnAdFailedToLoad += OnFailedToLoad;
+		
 	}
 
 	void OnDestroy ()
 	{
-		interAd.Destroy();
+		if (interAd != null) interAd.Destroy();
+	}
+
+	void OnEnable ()
+	{
+		BuildInterstitial();
+	}
+
+	void OnDisable ()
+	{
+		if (interAd != null) interAd.Destroy();
 	}
 
 
@@ -53,6 +73,8 @@ public class InterstitialBuilder : MonoBehaviour {
 		#endif
 
 		interAd = new InterstitialAd(adUnitId);
+		interAd.OnAdClosed += DestroyInterstitial;
+		interAd.OnAdFailedToLoad += OnFailedToLoad;
 		AdRequest request = new AdRequest.Builder().Build();
 		interAd.LoadAd(request);
 	}

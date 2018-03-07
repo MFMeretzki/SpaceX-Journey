@@ -8,8 +8,6 @@ public class BannerAdBuilder : MonoBehaviour {
 
 	void Start ()
 	{
-		BuildBanner();
-		banner.OnAdFailedToLoad += OnFailedToLoad;
 	}
 
 	void OnDestroy ()
@@ -17,8 +15,13 @@ public class BannerAdBuilder : MonoBehaviour {
 		banner.Destroy();
 	}
 
+	public void DestroyBanner ()
+	{
+		banner.Destroy();
+	}
 
-	private void BuildBanner ()
+
+	public void BuildBanner ()
 	{
 		#if UNITY_ANDROID
 			//TODO change from test ads to production
@@ -29,8 +32,9 @@ public class BannerAdBuilder : MonoBehaviour {
 		#else
 			string adUnitId = "unexpected-platform;
 		#endif
-
+		
 		banner = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+		banner.OnAdFailedToLoad += OnFailedToLoad;
 		AdRequest request = new AdRequest.Builder().Build();
 		banner.LoadAd(request);
 	}

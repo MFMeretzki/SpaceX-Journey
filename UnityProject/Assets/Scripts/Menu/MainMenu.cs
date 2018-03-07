@@ -26,6 +26,8 @@ public class MainMenu : BasePanel
 	void Start ()
 	{
 		OnLanguageChange();
+		BannerAdBuilder bannerAdBuilder = GameObject.Find("BannerAd").GetComponent<BannerAdBuilder>();
+		bannerAdBuilder.BuildBanner();
 	}
 
 
