@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
 
     private float fuel;
     private int ore;
+	private float gameTime;
 
     void Awake ()
     {
@@ -50,6 +51,7 @@ public class GameController : MonoBehaviour {
         Planet = null;
         fuel = fuelCapacity;
         ore = 0;
+		gameTime = 0;
 	}
 
 	void Start ()
@@ -58,7 +60,13 @@ public class GameController : MonoBehaviour {
 		IngameSounds = true;
 	}
 
-	void Update () { }
+	void Update ()
+	{
+		if (!Paused && !gameOver)
+		{
+			gameTime += Time.deltaTime;
+		}
+	}
 
 	void OnDisable ()
     {
@@ -96,14 +104,25 @@ public class GameController : MonoBehaviour {
         if (OreChange != null) OreChange(ore);
     }
 
-	public void ShipDestroied ()
+	public void ShipDestroied (string collisionObject)
 	{
 		ship.gameObject.SetActive(false);
 		if (!gameOver)
 		{
 			float seconds = 2f;
 			SoundManager.Instance.MusicFadeOut(seconds);
-			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, seconds));
+			switch (collisionObject)
+			{
+				case "Planet":
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.PlanetCollision, seconds));
+					break;
+				case "Asteroid":
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.AsteroidCollision, seconds));
+					break;
+				default:
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.UntaggedCollision, seconds));
+					break;
+			}
 		}
 	}
 
@@ -123,7 +142,7 @@ public class GameController : MonoBehaviour {
 		GameController.gameOver = true;
 		yield return new WaitForSeconds(seconds);
 		IngameSounds = false;
-		gameOverScreen.Show(gameOverCause, ore);
+		gameOverScreen.Show(gameOverCause, ore, gameTime);
 		if (GameOverEvent != null) GameOverEvent();
 	}
 

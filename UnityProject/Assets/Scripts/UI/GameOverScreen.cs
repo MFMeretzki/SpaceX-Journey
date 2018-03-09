@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Firebase.Analytics;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +15,9 @@ public class GameOverScreen : MonoBehaviour {
     public enum GameOver : int
     {
         OutOfFuel,
-        ShipDestroid
+        AsteroidCollision,
+		PlanetCollision,
+		UntaggedCollision
     }
 
     [SerializeField]
@@ -46,11 +50,10 @@ public class GameOverScreen : MonoBehaviour {
     void Start () { }
 	void Update () { }
 
-    public void  Show (GameOver gameOverCause, int ore)
+    public void  Show (GameOver gameOverCause, int ore, float gameTime)
     {
-        gameObject.SetActive(true);
-
-        message.text = Message(gameOverCause);
+		gameObject.SetActive(true);
+		message.text = Message(gameOverCause);
         points = ore;
         score.text = points.ToString();
 
@@ -60,6 +63,9 @@ public class GameOverScreen : MonoBehaviour {
             inputField.SetActive(false);
             isNewRecord = false;
         }
+
+		//analytics
+		StartCoroutine(AnalyticsLog(gameOverCause, gameTime));
     }
 
     public void RestartButtonClick ()
@@ -74,6 +80,34 @@ public class GameOverScreen : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
+	private IEnumerator AnalyticsLog (GameOver gameOverCause, float gameTime)
+	{
+		yield return null;
+		FirebaseAnalytics.LogEvent(
+			FirebaseAnalytics.EventPostScore,
+			new Parameter[] {
+				new Parameter(FirebaseAnalytics.ParameterScore, points)
+			}
+		);
+		FirebaseAnalytics.LogEvent("game_time_event", "game_time", gameTime);
+
+		switch (gameOverCause)
+		{
+			case GameOver.OutOfFuel:
+				FirebaseAnalytics.LogEvent("gameover_cause_event", "gameover_cause", "fuel");
+				break;
+			case GameOver.PlanetCollision:
+				FirebaseAnalytics.LogEvent("gameover_cause_event", "gameover_cause", "planet_collision");
+				break;
+			case GameOver.AsteroidCollision:
+				FirebaseAnalytics.LogEvent("gameover_cause_event", "gameover_cause", "asteroid_collision");
+				break;
+			case GameOver.UntaggedCollision:
+				FirebaseAnalytics.LogEvent("gameover_cause_event", "gameover_cause", "untagged_collision");
+				break;
+		}
+	}
+
     private string Message (GameOver gameOverCause)
     {
         string msg = "";
@@ -83,7 +117,8 @@ public class GameOverScreen : MonoBehaviour {
             case GameOver.OutOfFuel:
                 msg = Localization.Instance.GetText(OUT_OF_FUEL_ID);
                 break;
-            case GameOver.ShipDestroid:
+            case GameOver.AsteroidCollision:
+			case GameOver.PlanetCollision:
                 msg = Localization.Instance.GetText(SHIP_DESTROYED_ID);
                 break;
         }
