@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidManager : MonoBehaviour {
@@ -39,16 +39,26 @@ public class AsteroidManager : MonoBehaviour {
 
 	private void SpawnAsteroid ()
 	{
-		Vector2 pos = gameController.Ship.position;
-		Vector2 spawnPos = pos + Random.insideUnitCircle.normalized * minSpawnDistance;
+		Vector2 pos = gameController.Ship.transform.position;
+        Vector2 vel = gameController.Ship.Velocity * 6.0f;
+        Vector2 spawnPos = pos + vel + Random.insideUnitCircle.normalized * minSpawnDistance;
 		float radius = asteroidFactory.GetAsteroidRadius();
 		while (Physics2D.OverlapCircleNonAlloc(spawnPos, radius, collArray) != 0)
 		{
-			spawnPos = pos + Random.insideUnitCircle.normalized * minSpawnDistance;
-		}
+            spawnPos = pos + vel + Random.insideUnitCircle.normalized * minSpawnDistance;
+            //spawnPos = pos + Random.insideUnitCircle.normalized * minSpawnDistance;
+        }
 		
-		Vector2 direction = pos - spawnPos;
-		if (gameController.Planet != null) direction = Random.insideUnitCircle;
+		Vector2 direction;
+        if (gameController.Planet != null)
+        {
+            direction = Random.insideUnitCircle;
+        }
+        else
+        {
+            float dist = (pos - spawnPos).magnitude;
+            direction = pos + vel - spawnPos;
+        }
 		GameObject asteroid = asteroidFactory.BuildAsteroid(spawnPos, direction.normalized);
 		asteroids.Add(asteroid);
 

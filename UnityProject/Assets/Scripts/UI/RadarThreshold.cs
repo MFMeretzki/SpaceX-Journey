@@ -52,7 +52,7 @@ public class RadarThreshold : UIBehaviour {
     protected void Update ()
     {
         int count = Physics2D.OverlapCircleNonAlloc(
-            gameController.Ship.position,
+            gameController.Ship.transform.position,
             radiusDetect, 
             neighbourPlanets,
             mask
@@ -64,7 +64,7 @@ public class RadarThreshold : UIBehaviour {
         {
             neighbours[i] = neighbourPlanets[i];
         }
-        neighbours = neighbours.OrderBy(collider => (gameController.Ship.position - collider.transform.position).sqrMagnitude).ToArray();
+        neighbours = neighbours.OrderBy(collider => (gameController.Ship.transform.position - collider.transform.position).sqrMagnitude).ToArray();
 
         i = 0;
         while (i < count && i < radarPointersCount)

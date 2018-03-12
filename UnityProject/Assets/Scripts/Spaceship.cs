@@ -7,6 +7,8 @@ public class Spaceship : CosmicBody
 	
     private const float ANGLE_TOLERANCE = 30.0f;
 
+    public Vector2 Velocity { get { return rigidbody2d.velocity; } }
+
 	public InputController inputC;
 	public float thrustersForce;
 	public float delayUntilMaxThrust;

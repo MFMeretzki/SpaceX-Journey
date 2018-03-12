@@ -218,7 +218,7 @@ MonoBehaviour:
   asteroidFactory: {fileID: 515012782}
   minTimeBetweenSpawn: 2
   minSpawnDistance: 15
-  maxDistanceToPlayer: 20
+  maxDistanceToPlayer: 50
 --- !u!4 &31267469
 Transform:
   m_ObjectHideFlags: 0
@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b3a9c62554d314699d76c958bc0195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 1600703504}
+  ship: {fileID: 1815127305}
   mapManager: {fileID: 229133633}
   pauseMenu: {fileID: 608321969}
   gameOverScreen: {fileID: 572509539}

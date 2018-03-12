@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -21,8 +21,8 @@ public class GameController : MonoBehaviour {
     }
 
     [SerializeField]
-    private Transform ship;
-    public Transform Ship
+    private Spaceship ship;
+    public Spaceship Ship
     {
         get { return ship; }
     }

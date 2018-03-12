@@ -27,7 +27,7 @@ public class RadarPointer : UIBehaviour {
 
     public void SetObjective (Collider2D objective)
     {
-        Vector2 dir = (objective.transform.position - gameController.Ship.position);
+        Vector2 dir = (objective.transform.position - gameController.Ship.transform.position);
         float dist = dir.magnitude;
 
         if(dist > 3.0f)
