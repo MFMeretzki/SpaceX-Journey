@@ -26,12 +26,14 @@ public class MainMenu : BasePanel
 	void Start ()
 	{
 		OnLanguageChange();
+		BannerAdBuilder bannerAdBuilder = GameObject.Find("BannerAd").GetComponent<BannerAdBuilder>();
+		bannerAdBuilder.BuildBanner();
 	}
 
 
 	public void PlayButtonClick ()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("InterstitialAd");
 	}
 
 	public void ScoresButtonClick ()

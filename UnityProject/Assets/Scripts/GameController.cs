@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour {
 
     private float fuel;
     private int ore;
-
+	private float gameTime;
 
     void Awake ()
     {
@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour {
         Planet = null;
         fuel = fuelCapacity;
         ore = 0;
+		gameTime = 0;
 	}
 
 	void Start ()
@@ -59,13 +60,29 @@ public class GameController : MonoBehaviour {
 		IngameSounds = true;
 	}
 
-	void Update () { }
+	void Update ()
+	{
+		if (!Paused && !gameOver)
+		{
+			gameTime += Time.deltaTime;
+		}
+	}
 
 	void OnDisable ()
     {
         GameController.Pause(false);
 		SoundManager.Instance.StopMusic();
     }
+
+	void OnApplicationFocus (bool hasFocus)
+	{
+		if (!gameOver && !Paused && !hasFocus) PauseGame(true);
+	}
+
+	void OnApplicationPause (bool pauseStatus)
+	{
+		if (!gameOver && !Paused && pauseStatus) PauseGame(true);
+	}
 
     public void FuelConsumption(float volumeConsumed)
     {
@@ -87,14 +104,25 @@ public class GameController : MonoBehaviour {
         if (OreChange != null) OreChange(ore);
     }
 
-	public void ShipDestroied ()
+	public void ShipDestroied (string collisionObject)
 	{
 		ship.gameObject.SetActive(false);
 		if (!gameOver)
 		{
 			float seconds = 2f;
 			SoundManager.Instance.MusicFadeOut(seconds);
-			StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.ShipDestroid, seconds));
+			switch (collisionObject)
+			{
+				case "Planet":
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.PlanetCollision, seconds));
+					break;
+				case "Asteroid":
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.AsteroidCollision, seconds));
+					break;
+				default:
+					StartCoroutine(GameOverCoroutine(GameOverScreen.GameOver.UntaggedCollision, seconds));
+					break;
+			}
 		}
 	}
 
@@ -114,16 +142,22 @@ public class GameController : MonoBehaviour {
 		GameController.gameOver = true;
 		yield return new WaitForSeconds(seconds);
 		IngameSounds = false;
-		gameOverScreen.Show(gameOverCause, ore);
+		gameOverScreen.Show(gameOverCause, ore, gameTime);
+		if (GameOverEvent != null) GameOverEvent();
+	}
+
+	private void PauseGame (bool p)
+	{
+		GameController.Pause(p);
+		pauseMenu.SetActive(p);
+		SoundManager.Instance.PauseMusic(p);
+		if (GamePause != null) GamePause(p);
 	}
 
     public void MenuButtonPressed ()
     {
         bool p = !GameController.Paused;
-        GameController.Pause(p);
-        pauseMenu.SetActive(p);
-		SoundManager.Instance.PauseMusic(p);
-		if (GamePause != null) GamePause(p);
+		PauseGame(p);
     }
 
     #region Events
@@ -135,5 +169,8 @@ public class GameController : MonoBehaviour {
 
 	public delegate void GamePauseHandler (bool paused);
 	public event GamePauseHandler GamePause;
+
+	public delegate void GameOverHandler ();
+	public event GameOverHandler GameOverEvent;
     #endregion
 }

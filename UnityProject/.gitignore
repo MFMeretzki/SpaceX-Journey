@@ -3,6 +3,7 @@ Temp/
 Builds/
 .vs/
 Assets/TouchScript/Examples/
+Assets/TouchScript/**/*.dll
 
 ExportedObj/
 obj/
@@ -22,3 +23,13 @@ Build/
 
 *.exe
 *.pdb
+
+
+#google abmob and firebase plugins
+
+Assets/Editor Default Resources*
+Assets/Firebase*
+Assets/GoogleMobileAds*
+Assets/Parse*
+Assets/PlayServicesResolver*
+Assets/Plugins*

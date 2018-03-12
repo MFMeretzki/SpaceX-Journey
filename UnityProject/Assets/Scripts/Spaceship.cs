@@ -123,11 +123,14 @@ public class Spaceship : CosmicBody
 		float dot = Vector2.Dot(direction, dir);
 		if (dot <= -0.7)
 		{
-			if (collision.relativeVelocity.magnitude > maxLandingVelocity) GameOver();
+			if (collision.relativeVelocity.magnitude > maxLandingVelocity)
+			{
+				GameOver(collision.transform.tag);
+			}
 		}
 		else if (collision.relativeVelocity.magnitude > maxCollisionVelocity)
 		{
-			GameOver();
+			GameOver(collision.transform.tag);
 		}
 	}
 
@@ -143,7 +146,7 @@ public class Spaceship : CosmicBody
 			if (angle > ANGLE_TOLERANCE)
 			{
 				landed = false;
-				GameOver();
+				GameOver(collision.transform.tag);
 			}
 			
 			else if (angle <= ANGLE_TOLERANCE &&
@@ -174,10 +177,11 @@ public class Spaceship : CosmicBody
 	}
 
 
-	private void GameOver ()
+	private void GameOver (string collisionObject)
 	{
+		Debug.Log(collisionObject);
 		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-		gameController.ShipDestroied();
+		gameController.ShipDestroied(collisionObject);
 	}
 
 }

@@ -13,16 +13,16 @@
 		<Text id="options_menu_language">Idioma</Text>
 		<Text id="options_menu_music_volume">Música</Text>
 		<Text id="options_menu_effects_volume">Sonido</Text>
-    <Text id="options_menu_controls">Controles</Text>
-    <Text id="options_menu_joystick">Joystick</Text>
-    <Text id="options_menu_touchngo">Touch'n Go</Text>
+		<Text id="options_menu_controls">Controles</Text>
+		<Text id="options_menu_joystick">Joystick</Text>
+		<Text id="options_menu_touchngo">Touch'n Go</Text>
 		<Text id="options_menu_return">Volver</Text>
 
 		<!-- Scores menu -->
 		<Text id="scores_highscores">Récords</Text>
 		<Text id="scores_player">Jugador</Text>
 		<Text id="scores_points">Puntos</Text>
-    <Text id="scores_menu_return">Volver</Text>
+		<Text id="scores_menu_return">Volver</Text>
 
 		<!-- Credits menu -->
 		<Text id="credits_text"></Text>
@@ -36,8 +36,11 @@
 		<!-- Game over menu -->
 		<Text id="gameover_restart">Reiniciar</Text>
 		<Text id="gameover_main_menu">Menú Principal</Text>
-    <Text id="gameover_name_placeholder">Nombre</Text>
+		<Text id="gameover_name_placeholder">Nombre</Text>
 		<Text id="gameover_out_of_fuel">Después de quedarse sin combustible la nave viajó a la deriva hasta que se estrello en un planeta desierto.</Text>
 		<Text id="gameover_ship_destroyed">Tras un impacto brutal la nave explotó en mil pedazos matando a toda la tripulación.</Text>
+		
+		<!-- Ingame -->
+		<Text id="ingame_speed">Velocidad</Text>
 	</Texts>
 </Root>
