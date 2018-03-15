@@ -7,7 +7,7 @@ public class CollectableBarrel : CollectableItem
     public override void Awake ()
     {
         base.Awake();
-        fuel = Random.Range(10.0f, 14.0f);
+        fuel = Random.Range(150f, 200f);
     }
 
     protected override void PickItem ()
