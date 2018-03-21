@@ -216,8 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 2125004471}
   asteroidFactory: {fileID: 515012782}
-  minTimeBetweenSpawn: 2
-  minSpawnDistance: 15
+  minTimeBetweenSpawn: 4
+  minSpawnDistance: 20
   maxDistanceToPlayer: 50
 --- !u!4 &31267469
 Transform:
@@ -2602,6 +2602,34 @@ Prefab:
       propertyPath: backgroudRenderer
       value: 
       objectReference: {fileID: 1723686040}
+    - target: {fileID: 114314831781793656, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: scale.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 114314831781793656, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: scale.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 114314831781793656, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: spaceship
+      value: 
+      objectReference: {fileID: 1815127305}
+    - target: {fileID: 114314831781793656, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: mCamera
+      value: 
+      objectReference: {fileID: 509674361}
+    - target: {fileID: 4616945036897812, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616945036897812, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
   m_IsPrefabParent: 0
