@@ -53,10 +53,12 @@ public class AsteroidManager : MonoBehaviour {
         if (gameController.Planet != null)
         {
             direction = Random.insideUnitCircle;
+			//TODO what to do when spaceship is near a planet?
+			//no spawn asteroid for now
+			return;
         }
         else
         {
-            float dist = (pos - spawnPos).magnitude;
             direction = pos + vel - spawnPos;
         }
 		GameObject asteroid = asteroidFactory.BuildAsteroid(spawnPos, direction.normalized);

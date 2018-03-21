@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 50902971007410770}
   - component: {fileID: 114866078741337216}
   - component: {fileID: 212968290286984894}
-  - component: {fileID: 114048505950485196}
   - component: {fileID: 61996517385013674}
   - component: {fileID: 82875435013674904}
   m_Layer: 0
@@ -89,7 +88,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.2
+  m_LinearDrag: 0.1
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -269,7 +268,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -299,17 +298,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114048505950485196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1166219805944576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00502a7a930ab16488c97b154a03ecf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114866078741337216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,13 +313,13 @@ MonoBehaviour:
     type: 2}
   initialVelocity: {x: 0, y: 0}
   initialAngularVelocity: 0
-  maxCollisionVelocity: 0.5
-  inputC: {fileID: 114048505950485196}
+  maxCollisionVelocity: 0.8
+  inputC: {fileID: 0}
   thrustersForce: 3
   delayUntilMaxThrust: 1
   maxVelocity: 2
   fuelConsumption: 1
-  maxLandingVelocity: 1
+  maxLandingVelocity: 1.2
   thrustersAClip: {fileID: 8300000, guid: 422bde78415172945a531026df56f558, type: 3}
   thrustersAS: {fileID: 82783177632247418}
 --- !u!212 &212968290286984894

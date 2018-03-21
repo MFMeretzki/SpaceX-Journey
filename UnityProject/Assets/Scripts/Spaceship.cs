@@ -146,7 +146,11 @@ public class Spaceship : CosmicBody
 			if (angle > ANGLE_TOLERANCE)
 			{
 				landed = false;
-				GameOver(collision.transform.tag);
+				Debug.Log(angle);
+				if (rigidbody2d.velocity.magnitude > maxCollisionVelocity || angle > 50f)
+				{
+					GameOver(collision.transform.tag);
+				}
 			}
 			
 			else if (angle <= ANGLE_TOLERANCE &&
@@ -179,7 +183,6 @@ public class Spaceship : CosmicBody
 
 	private void GameOver (string collisionObject)
 	{
-		Debug.Log(collisionObject);
 		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 		gameController.ShipDestroied(collisionObject);
 	}

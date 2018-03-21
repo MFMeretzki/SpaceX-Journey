@@ -4,11 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : BasePanel
 {
-    private const string RESTART_ID = "pause_restart";
+	private const string RESUME_ID = "pause_resume";
+	private const string RESTART_ID = "pause_restart";
     private const string OPTIONS_ID = "pause_options";
     private const string MAIN_MENU_ID = "pause_main_menu";
     private const string EXIT_ID = "pause_exit";
 
+	[SerializeField]
+	private Text resumeText;
     [SerializeField]
     private Text restartText;
     [SerializeField]
@@ -46,6 +49,7 @@ public class PauseMenuController : BasePanel
 
     protected override void OnLanguageChange ()
     {
+		resumeText.text = Localization.Instance.GetText(RESUME_ID);
         restartText.text = Localization.Instance.GetText(RESTART_ID);
         optionsText.text = Localization.Instance.GetText(OPTIONS_ID);
         mainMenuText.text = Localization.Instance.GetText(MAIN_MENU_ID);

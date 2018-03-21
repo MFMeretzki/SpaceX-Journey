@@ -28,6 +28,7 @@
 		<Text id="credits_text"></Text>
 		
 		<!-- Pause menu -->
+		<Text id="pause_resume">Continuar</Text>
 		<Text id="pause_restart">Reiniciar</Text>
 		<Text id="pause_options">Opciones</Text>
 		<Text id="pause_main_menu">Menú Principal</Text>
