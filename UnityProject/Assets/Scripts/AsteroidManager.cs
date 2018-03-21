@@ -40,7 +40,7 @@ public class AsteroidManager : MonoBehaviour {
 	private void SpawnAsteroid ()
 	{
 		Vector2 pos = gameController.Ship.transform.position;
-        Vector2 vel = gameController.Ship.Velocity * 6.0f;
+        Vector2 vel = gameController.Ship.Velocity * 7.5f;
         Vector2 spawnPos = pos + vel + Random.insideUnitCircle.normalized * minSpawnDistance;
 		float radius = asteroidFactory.GetAsteroidRadius();
 		while (Physics2D.OverlapCircleNonAlloc(spawnPos, radius, collArray) != 0)
