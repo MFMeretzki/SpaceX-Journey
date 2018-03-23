@@ -202,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &31267468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   gameController: {fileID: 2125004471}
   asteroidFactory: {fileID: 515012782}
   minTimeBetweenSpawn: 4
-  minSpawnDistance: 20
+  minSpawnDistance: 15
   maxDistanceToPlayer: 50
 --- !u!4 &31267469
 Transform:
