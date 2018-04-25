@@ -38,7 +38,7 @@
 		<Text id="gameover_restart">Reiniciar</Text>
 		<Text id="gameover_main_menu">Menú Principal</Text>
 		<Text id="gameover_name_placeholder">Nombre</Text>
-		<Text id="gameover_out_of_fuel">Después de quedarse sin combustible la nave viajó a la deriva hasta que se estrello en un planeta desierto.</Text>
+		<Text id="gameover_out_of_fuel">Después de quedarse sin combustible la nave viajó a la deriva hasta que se estrelló en un planeta desierto.</Text>
 		<Text id="gameover_ship_destroyed">Tras un impacto brutal la nave explotó en mil pedazos matando a toda la tripulación.</Text>
 		
 		<!-- Ingame -->
