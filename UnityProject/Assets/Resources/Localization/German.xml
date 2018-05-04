@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Root>
+	<Texts>
+		<!-- Main menu -->
+		<Text id="main_menu_play">Spiel</Text>
+		<Text id="main_menu_highscores">Höchstpunktzahl</Text>
+		<Text id="main_menu_options">Optionen</Text>
+		<Text id="main_menu_credits">das Team</Text>
+		<Text id="main_menu_exit">Ausgang</Text>
+
+		<!-- Options menu -->
+		<Text id="options_menu_language">Sprache</Text>
+		<Text id="options_menu_music_volume">Musik</Text>
+		<Text id="options_menu_effects_volume">Ton</Text>
+		<Text id="options_menu_controls">Kontrolle</Text>
+		<Text id="options_menu_joystick">Joystick</Text>
+		<Text id="options_menu_touchngo">Touch'n go</Text>
+		<Text id="options_menu_return">Zurück</Text>
+
+		<!-- Scores menu -->
+		<Text id="scores_highscores">Höchstpunktzahl</Text>
+		<Text id="scores_player">Spieler</Text>
+		<Text id="scores_points">Punkte</Text>
+		<Text id="scores_menu_return">Zurück</Text>
+		
+		<!-- Credits menu -->
+		<Text id="credits_text"></Text>
+
+		<!-- Pause menu -->
+		<Text id="pause_resume">weiter</Text>
+		<Text id="pause_restart">Neuanfang</Text>
+		<Text id="pause_options">Optionen</Text>
+		<Text id="pause_main_menu">Hauptmenu</Text>
+		<Text id="pause_exit">Ausgang</Text>
+
+		<!-- Game over menu -->
+		<Text id="gameover_restart">Neustart</Text>
+		<Text id="gameover_main_menu">Hauptmenu</Text>
+		<Text id="gameover_name_placeholder">Name</Text>
+		<Text id="gameover_out_of_fuel">Nachdem der Treibstoff ausgegangen war, reiste das Raumschiff treibend durch das All bis es auf einen Planeten abstürzte.</Text>
+		<Text id="gameover_ship_destroyed">Nach einem brutalen Aufprall explodierte das Raumschiff in tausend Teile und tötete de gesamte Besatzung.</Text>
+		
+		<!-- Ingame -->
+		<Text id="ingame_speed">Geschwindigkeit</Text>
+	</Texts>
+</Root>
