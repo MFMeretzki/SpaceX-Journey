@@ -705,6 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 2125004471}
   planetFactory: {fileID: 95878805}
+  heart: {fileID: 1834919013360186, guid: 24ad7662abad4c648a1b4ddcad4ba559, type: 2}
 --- !u!4 &229133634
 Transform:
   m_ObjectHideFlags: 0
@@ -2936,6 +2937,11 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 560
       objectReference: {fileID: 0}
+    - target: {fileID: 114620107702314928, guid: 74ef547290d536043905a3ce3ae4249b,
+        type: 2}
+      propertyPath: menuController
+      value: 
+      objectReference: {fileID: 608321971}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74ef547290d536043905a3ce3ae4249b, type: 2}
   m_IsPrefabParent: 0
@@ -3679,7 +3685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4734238393160026, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4734238393160026, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3751,6 +3757,11 @@ Prefab:
     - target: {fileID: 4616945036897812, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 20601759080784580, guid: b232a3a48ddebf94da4e16bf112c43d2,
+        type: 2}
+      propertyPath: orthographic size
+      value: 3.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b232a3a48ddebf94da4e16bf112c43d2, type: 2}
@@ -5241,7 +5252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4396888666752860, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4396888666752860, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5271,6 +5282,11 @@ Prefab:
         type: 2}
       propertyPath: inputC
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 61996517385013674, guid: a0d8aea8ef3a1834d93e8397804d9cb5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d8aea8ef3a1834d93e8397804d9cb5, type: 2}

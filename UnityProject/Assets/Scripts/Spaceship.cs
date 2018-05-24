@@ -31,7 +31,7 @@ public class Spaceship : CosmicBody
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
 		gameController.GamePause += OnGamePause;
 		collider2d = GetComponent<BoxCollider2D>();
-		animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
 		base.Start();
 		direction = Vector2.up;

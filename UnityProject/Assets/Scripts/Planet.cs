@@ -49,6 +49,7 @@ public class Planet : MonoBehaviour {
     public void Start ()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        eventsCollider.enabled = true;
     }
     public void Update () { }
 

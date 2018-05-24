@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +8,8 @@ public class MainMenu : BasePanel
 	private const string PLAY_ID = "main_menu_play";
 	private const string HIGHSCORES_ID = "main_menu_highscores";
 	private const string OPTIONS_ID = "main_menu_options";
-	private const string CREDITS_ID = "main_menu_credits";
+    private const string INFO_ID = "main_menu_info";
+    private const string CREDITS_ID = "main_menu_credits";
 	private const string EXIT_ID = "main_menu_exit";
 
 	[SerializeField]
@@ -17,7 +18,9 @@ public class MainMenu : BasePanel
 	private Text highscoresText;
 	[SerializeField]
 	private Text optionsText;
-	[SerializeField]
+    [SerializeField]
+    private Text infoText;
+    [SerializeField]
 	private Text creditsText;
 	[SerializeField]
 	private Text exitText;
@@ -44,9 +47,14 @@ public class MainMenu : BasePanel
 	public void OptionsButtonClick ()
 	{
 		menuController.SwitchPanel(1);
-	}
+    }
 
-	public void CreditsButtonClick ()
+    public void InfoButtonClick ()
+    {
+        menuController.SwitchPanel(4);
+    }
+
+    public void CreditsButtonClick ()
 	{
 		menuController.SwitchPanel(3);
 	}
@@ -61,7 +69,8 @@ public class MainMenu : BasePanel
 		playText.text = Localization.Instance.GetText(PLAY_ID);
 		highscoresText.text = Localization.Instance.GetText(HIGHSCORES_ID);
 		optionsText.text = Localization.Instance.GetText(OPTIONS_ID);
-		creditsText.text = Localization.Instance.GetText(CREDITS_ID);
+        infoText.text = Localization.Instance.GetText(INFO_ID);
+        creditsText.text = Localization.Instance.GetText(CREDITS_ID);
 		exitText.text = Localization.Instance.GetText(EXIT_ID);
 	}
 

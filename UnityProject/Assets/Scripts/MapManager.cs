@@ -8,11 +8,13 @@ public class MapManager : MonoBehaviour {
     private GameController gameController;
     [SerializeField]
     private PlanetFactory planetFactory;
+    [SerializeField]
+    private GameObject heart;
 
     private const float CHUNK_SIZE = 70.0f;
     private const float MIN_DIST = 21.0f;
     private const float DIST_TO_BORDER = 10.5f;
-    private const float MIN_INIT_DIST = 10.5f;
+    private const float MIN_INIT_DIST = 18.0f;
 
     private const int NUM_PLANETS = 6;
     private const int MAX_ITERATIONS = 20;
@@ -81,6 +83,8 @@ public class MapManager : MonoBehaviour {
             if (isInit)
             {
                 planetPositions = CheckInitValid(planetPositions);
+                GameObject heart = GameObject.Instantiate(this.heart, Vector3.zero, Quaternion.identity);
+                heart.transform.SetParent(chunk.transform, true);
             }
             GeneratePlanets(chunk, planetPositions);
             chunks.Add(name, chunk);

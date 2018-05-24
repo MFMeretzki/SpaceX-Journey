@@ -6,6 +6,7 @@
 		<Text id="main_menu_play">Jugar</Text>
 		<Text id="main_menu_highscores">Récords</Text>
 		<Text id="main_menu_options">Opciones</Text>
+    <Text id="main_menu_info">Info</Text>
 		<Text id="main_menu_credits">Créditos</Text>
 		<Text id="main_menu_exit">Salir</Text>
 
@@ -23,6 +24,9 @@
 		<Text id="scores_player">Jugador</Text>
 		<Text id="scores_points">Puntos</Text>
 		<Text id="scores_menu_return">Volver</Text>
+
+    <!-- Info menu -->
+    <Text id="info_text"></Text>
 
 		<!-- Credits menu -->
 		<Text id="credits_text"></Text>

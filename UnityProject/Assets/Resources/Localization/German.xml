@@ -6,6 +6,7 @@
 		<Text id="main_menu_play">Spiel</Text>
 		<Text id="main_menu_highscores">Höchstpunktzahl</Text>
 		<Text id="main_menu_options">Optionen</Text>
+    <Text id="main_menu_info">Info</Text>
 		<Text id="main_menu_credits">das Team</Text>
 		<Text id="main_menu_exit">Ausgang</Text>
 
@@ -23,6 +24,9 @@
 		<Text id="scores_player">Spieler</Text>
 		<Text id="scores_points">Punkte</Text>
 		<Text id="scores_menu_return">Zurück</Text>
+
+    <!-- Info menu -->
+    <Text id="info_text"></Text>
 		
 		<!-- Credits menu -->
 		<Text id="credits_text"></Text>
